@@ -20,7 +20,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyForm.h">
+    <Image Include="image.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LoginWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
