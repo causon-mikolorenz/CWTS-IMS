@@ -1,5 +1,7 @@
 #pragma once
 
+
+#include "MainPage.h"
 namespace Project {
 
 	using namespace System;
@@ -228,14 +230,21 @@ namespace Project {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"LoginWindow";
 			this->Text = L"LoginWindow";
+			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &LoginWindow::LoginWindow_MouseDown);
+			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &LoginWindow::LoginWindow_MouseMove);
+			this->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &LoginWindow::LoginWindow_MouseUp);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 private: System::Void LoginButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (UserEdit->Text == "admin" && PasswordEdit->Text == "pass")
-		Application::Exit();
+	if (UserEdit->Text == "admin" && PasswordEdit->Text == "pass") { 
+		this->Hide();
+		MainPage mainp;
+		mainp.ShowDialog();
+		this->Close();
+	}
 	else
 		Errorlabel->Visible = true;
 }
@@ -247,6 +256,22 @@ private: System::Void ShowPassword_CheckedChanged(System::Object^ sender, System
 }
 private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
+}
+	   bool dragging;
+	   Point offset;
+private: System::Void LoginWindow_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	dragging = true;
+	offset.X = e->X;
+	offset.Y = e->Y;
+}
+private: System::Void LoginWindow_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	dragging = false;
+}
+private: System::Void LoginWindow_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	if (dragging) {
+		Point CurrentScreenPosition = PointToScreen(Point(e->X, e->Y));
+		Location = Point(CurrentScreenPosition.X - offset.X, CurrentScreenPosition.Y - offset.Y);
+	}
 }
 };
 }
