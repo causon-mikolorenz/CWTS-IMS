@@ -75,6 +75,8 @@ namespace Project {
 			// 
 			// panel1
 			// 
+			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel1->BackColor = System::Drawing::Color::White;
 			this->panel1->Controls->Add(this->ExitBtn);
 			this->panel1->Controls->Add(this->pictureBox1);
@@ -86,6 +88,7 @@ namespace Project {
 			// 
 			// ExitBtn
 			// 
+			this->ExitBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->ExitBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"ExitBtn.Image")));
 			this->ExitBtn->Location = System::Drawing::Point(744, 9);
 			this->ExitBtn->Name = L"ExitBtn";
@@ -106,6 +109,8 @@ namespace Project {
 			// 
 			// label1
 			// 
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::Color::White;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 15));
@@ -118,6 +123,8 @@ namespace Project {
 			// 
 			// tableLayoutPanel1
 			// 
+			this->tableLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->tableLayoutPanel1->BackColor = System::Drawing::Color::White;
 			this->tableLayoutPanel1->ColumnCount = 4;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
@@ -142,12 +149,14 @@ namespace Project {
 			// 
 			// DashboardBtn
 			// 
+			this->DashboardBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->DashboardBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->DashboardBtn->ForeColor = System::Drawing::Color::Maroon;
 			this->DashboardBtn->Location = System::Drawing::Point(591, 3);
 			this->DashboardBtn->Name = L"DashboardBtn";
-			this->DashboardBtn->Size = System::Drawing::Size(190, 56);
+			this->DashboardBtn->Size = System::Drawing::Size(193, 56);
 			this->DashboardBtn->TabIndex = 3;
 			this->DashboardBtn->Text = L"Dashboard";
 			this->DashboardBtn->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
@@ -155,6 +164,8 @@ namespace Project {
 			// 
 			// BRBtn
 			// 
+			this->BRBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->BRBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BRBtn->ForeColor = System::Drawing::Color::Maroon;
@@ -169,6 +180,8 @@ namespace Project {
 			// 
 			// LogBtn
 			// 
+			this->LogBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->LogBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LogBtn->ForeColor = System::Drawing::Color::Maroon;
@@ -184,6 +197,8 @@ namespace Project {
 			// 
 			// HomeBtn
 			// 
+			this->HomeBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->HomeBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->HomeBtn->ForeColor = System::Drawing::Color::Maroon;
