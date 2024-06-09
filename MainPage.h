@@ -39,11 +39,78 @@ namespace Project {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::Button^ DashboardBtn;
-	private: System::Windows::Forms::Button^ BRBtn;
-	private: System::Windows::Forms::Button^ LogBtn;
-	private: System::Windows::Forms::Button^ HomeBtn;
+
+
+
+
 	private: System::Windows::Forms::Button^ ExitBtn;
+	private: System::Windows::Forms::Button^ History;
+	private: System::Windows::Forms::Button^ Borrow;
+	private: System::Windows::Forms::Button^ Main;
+
+
+
+
+	private: System::Windows::Forms::Button^ Return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::TableLayoutPanel^ maintablelayout;
+
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox9;
+	private: System::Windows::Forms::PictureBox^ pictureBox8;
+	private: System::Windows::Forms::PictureBox^ pictureBox7;
+	private: System::Windows::Forms::PictureBox^ pictureBox6;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::Label^ label2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -64,20 +131,39 @@ namespace Project {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->DashboardBtn = (gcnew System::Windows::Forms::Button());
-			this->BRBtn = (gcnew System::Windows::Forms::Button());
-			this->LogBtn = (gcnew System::Windows::Forms::Button());
-			this->HomeBtn = (gcnew System::Windows::Forms::Button());
+			this->Main = (gcnew System::Windows::Forms::Button());
+			this->Borrow = (gcnew System::Windows::Forms::Button());
+			this->History = (gcnew System::Windows::Forms::Button());
+			this->Return = (gcnew System::Windows::Forms::Button());
+			this->maintablelayout = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
+			this->maintablelayout->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
 			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->panel1->BackColor = System::Drawing::Color::White;
+			this->panel1->BackColor = System::Drawing::Color::Maroon;
 			this->panel1->Controls->Add(this->ExitBtn);
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->label1);
@@ -112,9 +198,9 @@ namespace Project {
 			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::White;
+			this->label1->BackColor = System::Drawing::Color::Maroon;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 15));
-			this->label1->ForeColor = System::Drawing::Color::Maroon;
+			this->label1->ForeColor = System::Drawing::Color::White;
 			this->label1->Location = System::Drawing::Point(49, 10);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(497, 23);
@@ -125,7 +211,7 @@ namespace Project {
 			// 
 			this->tableLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->tableLayoutPanel1->BackColor = System::Drawing::Color::White;
+			this->tableLayoutPanel1->BackColor = System::Drawing::Color::MistyRose;
 			this->tableLayoutPanel1->ColumnCount = 4;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				25)));
@@ -135,99 +221,267 @@ namespace Project {
 				25)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				25)));
-			this->tableLayoutPanel1->Controls->Add(this->DashboardBtn, 3, 0);
-			this->tableLayoutPanel1->Controls->Add(this->BRBtn, 2, 0);
-			this->tableLayoutPanel1->Controls->Add(this->LogBtn, 1, 0);
-			this->tableLayoutPanel1->Controls->Add(this->HomeBtn, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Return, 2, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Borrow, 1, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Main, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->History, 3, 0);
 			this->tableLayoutPanel1->Location = System::Drawing::Point(1, 48);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(787, 62);
 			this->tableLayoutPanel1->TabIndex = 1;
+			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainPage::tableLayoutPanel1_Paint);
 			// 
-			// DashboardBtn
+			// Main
 			// 
-			this->DashboardBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->Main->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->DashboardBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Main->BackColor = System::Drawing::Color::Maroon;
+			this->Main->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DashboardBtn->ForeColor = System::Drawing::Color::Maroon;
-			this->DashboardBtn->Location = System::Drawing::Point(591, 3);
-			this->DashboardBtn->Name = L"DashboardBtn";
-			this->DashboardBtn->Size = System::Drawing::Size(193, 56);
-			this->DashboardBtn->TabIndex = 3;
-			this->DashboardBtn->Text = L"Dashboard";
-			this->DashboardBtn->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->DashboardBtn->UseVisualStyleBackColor = true;
+			this->Main->ForeColor = System::Drawing::SystemColors::Info;
+			this->Main->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Main.Image")));
+			this->Main->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->Main->Location = System::Drawing::Point(3, 3);
+			this->Main->Name = L"Main";
+			this->Main->Size = System::Drawing::Size(190, 56);
+			this->Main->TabIndex = 0;
+			this->Main->Text = L"Main Page";
+			this->Main->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->Main->UseVisualStyleBackColor = false;
 			// 
-			// BRBtn
+			// Borrow
 			// 
-			this->BRBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->Borrow->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->BRBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Borrow->BackColor = System::Drawing::Color::Maroon;
+			this->Borrow->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BRBtn->ForeColor = System::Drawing::Color::Maroon;
-			this->BRBtn->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->BRBtn->Location = System::Drawing::Point(395, 3);
-			this->BRBtn->Name = L"BRBtn";
-			this->BRBtn->Size = System::Drawing::Size(190, 56);
-			this->BRBtn->TabIndex = 2;
-			this->BRBtn->Text = L"Borrow/Return";
-			this->BRBtn->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->BRBtn->UseVisualStyleBackColor = true;
+			this->Borrow->ForeColor = System::Drawing::SystemColors::Info;
+			this->Borrow->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Borrow.Image")));
+			this->Borrow->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->Borrow->Location = System::Drawing::Point(199, 3);
+			this->Borrow->Name = L"Borrow";
+			this->Borrow->Size = System::Drawing::Size(190, 56);
+			this->Borrow->TabIndex = 1;
+			this->Borrow->Text = L"Borrow Page";
+			this->Borrow->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->Borrow->UseVisualStyleBackColor = false;
+			this->Borrow->Click += gcnew System::EventHandler(this, &MainPage::BorrowReturn_Click);
 			// 
-			// LogBtn
+			// History
 			// 
-			this->LogBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->History->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->LogBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->History->BackColor = System::Drawing::Color::Maroon;
+			this->History->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->LogBtn->ForeColor = System::Drawing::Color::Maroon;
-			this->LogBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"LogBtn.Image")));
-			this->LogBtn->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->LogBtn->Location = System::Drawing::Point(199, 3);
-			this->LogBtn->Name = L"LogBtn";
-			this->LogBtn->Size = System::Drawing::Size(190, 56);
-			this->LogBtn->TabIndex = 1;
-			this->LogBtn->Text = L"Log";
-			this->LogBtn->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->LogBtn->UseVisualStyleBackColor = true;
+			this->History->ForeColor = System::Drawing::SystemColors::Info;
+			this->History->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"History.Image")));
+			this->History->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->History->Location = System::Drawing::Point(591, 3);
+			this->History->Name = L"History";
+			this->History->Size = System::Drawing::Size(193, 56);
+			this->History->TabIndex = 2;
+			this->History->Text = L"History Page";
+			this->History->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->History->UseVisualStyleBackColor = false;
 			// 
-			// HomeBtn
+			// Return
 			// 
-			this->HomeBtn->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->Return->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->HomeBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Return->BackColor = System::Drawing::Color::Maroon;
+			this->Return->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->HomeBtn->ForeColor = System::Drawing::Color::Maroon;
-			this->HomeBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"HomeBtn.Image")));
-			this->HomeBtn->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->HomeBtn->Location = System::Drawing::Point(3, 3);
-			this->HomeBtn->Name = L"HomeBtn";
-			this->HomeBtn->Size = System::Drawing::Size(190, 56);
-			this->HomeBtn->TabIndex = 0;
-			this->HomeBtn->Text = L"Home";
-			this->HomeBtn->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->HomeBtn->UseVisualStyleBackColor = true;
+			this->Return->ForeColor = System::Drawing::SystemColors::Info;
+			this->Return->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Return.Image")));
+			this->Return->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->Return->Location = System::Drawing::Point(395, 3);
+			this->Return->Name = L"Return";
+			this->Return->Size = System::Drawing::Size(190, 56);
+			this->Return->TabIndex = 3;
+			this->Return->Text = L"Return Page";
+			this->Return->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->Return->UseVisualStyleBackColor = false;
+			// 
+			// maintablelayout
+			// 
+			this->maintablelayout->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->maintablelayout->BackColor = System::Drawing::SystemColors::Info;
+			this->maintablelayout->ColumnCount = 4;
+			this->maintablelayout->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				25)));
+			this->maintablelayout->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				25)));
+			this->maintablelayout->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				25)));
+			this->maintablelayout->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				25)));
+			this->maintablelayout->Controls->Add(this->pictureBox9, 3, 1);
+			this->maintablelayout->Controls->Add(this->pictureBox8, 2, 1);
+			this->maintablelayout->Controls->Add(this->pictureBox7, 1, 1);
+			this->maintablelayout->Controls->Add(this->pictureBox6, 0, 1);
+			this->maintablelayout->Controls->Add(this->pictureBox5, 3, 0);
+			this->maintablelayout->Controls->Add(this->pictureBox3, 1, 0);
+			this->maintablelayout->Controls->Add(this->pictureBox4, 2, 0);
+			this->maintablelayout->Controls->Add(this->pictureBox2, 0, 0);
+			this->maintablelayout->Location = System::Drawing::Point(1, 143);
+			this->maintablelayout->Name = L"maintablelayout";
+			this->maintablelayout->RowCount = 2;
+			this->maintablelayout->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->maintablelayout->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->maintablelayout->Size = System::Drawing::Size(787, 344);
+			this->maintablelayout->TabIndex = 11;
+			this->maintablelayout->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainPage::maintablelayout_Paint);
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->Location = System::Drawing::Point(43, 3);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(110, 128);
+			this->pictureBox2->TabIndex = 0;
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			this->pictureBox3->Location = System::Drawing::Point(239, 3);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(110, 128);
+			this->pictureBox3->TabIndex = 1;
+			this->pictureBox3->TabStop = false;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox4->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
+			this->pictureBox4->Location = System::Drawing::Point(427, 3);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(126, 128);
+			this->pictureBox4->TabIndex = 2;
+			this->pictureBox4->TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox5->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			this->pictureBox5->Location = System::Drawing::Point(622, 3);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(130, 128);
+			this->pictureBox5->TabIndex = 3;
+			this->pictureBox5->TabStop = false;
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox6->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
+			this->pictureBox6->Location = System::Drawing::Point(43, 175);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(110, 128);
+			this->pictureBox6->TabIndex = 4;
+			this->pictureBox6->TabStop = false;
+			// 
+			// pictureBox7
+			// 
+			this->pictureBox7->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox7->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
+			this->pictureBox7->Location = System::Drawing::Point(231, 175);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(126, 128);
+			this->pictureBox7->TabIndex = 5;
+			this->pictureBox7->TabStop = false;
+			// 
+			// pictureBox8
+			// 
+			this->pictureBox8->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox8->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
+			this->pictureBox8->Location = System::Drawing::Point(427, 175);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(126, 128);
+			this->pictureBox8->TabIndex = 6;
+			this->pictureBox8->TabStop = false;
+			// 
+			// pictureBox9
+			// 
+			this->pictureBox9->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox9->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
+			this->pictureBox9->Location = System::Drawing::Point(622, 175);
+			this->pictureBox9->Name = L"pictureBox9";
+			this->pictureBox9->Size = System::Drawing::Size(131, 128);
+			this->pictureBox9->TabIndex = 7;
+			this->pictureBox9->TabStop = false;
+			// 
+			// label2
+			// 
+			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::Maroon;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::White;
+			this->label2->Location = System::Drawing::Point(543, 113);
+			this->label2->Name = L"label2";
+			this->label2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->label2->Size = System::Drawing::Size(233, 23);
+			this->label2->TabIndex = 12;
+			this->label2->Text = L"CURRENT INVENTORY";
+			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label2->Click += gcnew System::EventHandler(this, &MainPage::label2_Click);
 			// 
 			// MainPage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Maroon;
 			this->ClientSize = System::Drawing::Size(788, 488);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->maintablelayout);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MainPage";
 			this->Text = L"MainPage";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &MainPage::MainPage_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
+			this->maintablelayout->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -235,5 +489,29 @@ namespace Project {
 	private: System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		Close();
 	}
+private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void BorrowReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label3_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Titlehead_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Tambo_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void maintablelayout_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }
