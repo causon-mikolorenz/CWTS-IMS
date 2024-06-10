@@ -79,7 +79,7 @@ namespace Project {
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
-	private: System::Windows::Forms::Label^ label2;
+
 
 
 
@@ -131,32 +131,31 @@ namespace Project {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->Main = (gcnew System::Windows::Forms::Button());
-			this->Borrow = (gcnew System::Windows::Forms::Button());
-			this->History = (gcnew System::Windows::Forms::Button());
 			this->Return = (gcnew System::Windows::Forms::Button());
+			this->Borrow = (gcnew System::Windows::Forms::Button());
+			this->Main = (gcnew System::Windows::Forms::Button());
+			this->History = (gcnew System::Windows::Forms::Button());
 			this->maintablelayout = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->maintablelayout->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -169,7 +168,7 @@ namespace Project {
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Location = System::Drawing::Point(-1, -1);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(790, 49);
+			this->panel1->Size = System::Drawing::Size(790, 86);
 			this->panel1->TabIndex = 0;
 			// 
 			// ExitBtn
@@ -186,9 +185,9 @@ namespace Project {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(13, 8);
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(30, 30);
+			this->pictureBox1->Size = System::Drawing::Size(102, 86);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
@@ -201,7 +200,7 @@ namespace Project {
 			this->label1->BackColor = System::Drawing::Color::Maroon;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 15));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(49, 10);
+			this->label1->Location = System::Drawing::Point(108, 37);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(497, 23);
 			this->label1->TabIndex = 0;
@@ -221,72 +220,17 @@ namespace Project {
 				25)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				25)));
-			this->tableLayoutPanel1->Controls->Add(this->Return, 2, 0);
-			this->tableLayoutPanel1->Controls->Add(this->Borrow, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Main, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->History, 3, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(1, 48);
+			this->tableLayoutPanel1->Controls->Add(this->Return, 2, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Borrow, 1, 0);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(1, 88);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(787, 62);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(787, 69);
 			this->tableLayoutPanel1->TabIndex = 1;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainPage::tableLayoutPanel1_Paint);
-			// 
-			// Main
-			// 
-			this->Main->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->Main->BackColor = System::Drawing::Color::Maroon;
-			this->Main->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Main->ForeColor = System::Drawing::SystemColors::Info;
-			this->Main->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Main.Image")));
-			this->Main->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->Main->Location = System::Drawing::Point(3, 3);
-			this->Main->Name = L"Main";
-			this->Main->Size = System::Drawing::Size(190, 56);
-			this->Main->TabIndex = 0;
-			this->Main->Text = L"Main Page";
-			this->Main->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->Main->UseVisualStyleBackColor = false;
-			// 
-			// Borrow
-			// 
-			this->Borrow->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->Borrow->BackColor = System::Drawing::Color::Maroon;
-			this->Borrow->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Borrow->ForeColor = System::Drawing::SystemColors::Info;
-			this->Borrow->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Borrow.Image")));
-			this->Borrow->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->Borrow->Location = System::Drawing::Point(199, 3);
-			this->Borrow->Name = L"Borrow";
-			this->Borrow->Size = System::Drawing::Size(190, 56);
-			this->Borrow->TabIndex = 1;
-			this->Borrow->Text = L"Borrow Page";
-			this->Borrow->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->Borrow->UseVisualStyleBackColor = false;
-			this->Borrow->Click += gcnew System::EventHandler(this, &MainPage::BorrowReturn_Click);
-			// 
-			// History
-			// 
-			this->History->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->History->BackColor = System::Drawing::Color::Maroon;
-			this->History->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->History->ForeColor = System::Drawing::SystemColors::Info;
-			this->History->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"History.Image")));
-			this->History->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->History->Location = System::Drawing::Point(591, 3);
-			this->History->Name = L"History";
-			this->History->Size = System::Drawing::Size(193, 56);
-			this->History->TabIndex = 2;
-			this->History->Text = L"History Page";
-			this->History->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->History->UseVisualStyleBackColor = false;
 			// 
 			// Return
 			// 
@@ -300,11 +244,66 @@ namespace Project {
 			this->Return->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->Return->Location = System::Drawing::Point(395, 3);
 			this->Return->Name = L"Return";
-			this->Return->Size = System::Drawing::Size(190, 56);
+			this->Return->Size = System::Drawing::Size(190, 63);
 			this->Return->TabIndex = 3;
 			this->Return->Text = L"Return Page";
 			this->Return->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->Return->UseVisualStyleBackColor = false;
+			// 
+			// Borrow
+			// 
+			this->Borrow->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->Borrow->BackColor = System::Drawing::Color::Maroon;
+			this->Borrow->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Borrow->ForeColor = System::Drawing::SystemColors::Info;
+			this->Borrow->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Borrow.Image")));
+			this->Borrow->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->Borrow->Location = System::Drawing::Point(199, 3);
+			this->Borrow->Name = L"Borrow";
+			this->Borrow->Size = System::Drawing::Size(190, 63);
+			this->Borrow->TabIndex = 1;
+			this->Borrow->Text = L"Borrow Page";
+			this->Borrow->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->Borrow->UseVisualStyleBackColor = false;
+			this->Borrow->Click += gcnew System::EventHandler(this, &MainPage::BorrowReturn_Click);
+			// 
+			// Main
+			// 
+			this->Main->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->Main->BackColor = System::Drawing::Color::Maroon;
+			this->Main->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Main->ForeColor = System::Drawing::SystemColors::Info;
+			this->Main->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Main.Image")));
+			this->Main->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->Main->Location = System::Drawing::Point(3, 3);
+			this->Main->Name = L"Main";
+			this->Main->Size = System::Drawing::Size(190, 63);
+			this->Main->TabIndex = 0;
+			this->Main->Text = L"Main Page";
+			this->Main->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->Main->UseVisualStyleBackColor = false;
+			// 
+			// History
+			// 
+			this->History->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->History->BackColor = System::Drawing::Color::Maroon;
+			this->History->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->History->ForeColor = System::Drawing::SystemColors::Info;
+			this->History->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"History.Image")));
+			this->History->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->History->Location = System::Drawing::Point(591, 3);
+			this->History->Name = L"History";
+			this->History->Size = System::Drawing::Size(193, 63);
+			this->History->TabIndex = 2;
+			this->History->Text = L"History Page";
+			this->History->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->History->UseVisualStyleBackColor = false;
 			// 
 			// maintablelayout
 			// 
@@ -329,26 +328,74 @@ namespace Project {
 			this->maintablelayout->Controls->Add(this->pictureBox3, 1, 0);
 			this->maintablelayout->Controls->Add(this->pictureBox4, 2, 0);
 			this->maintablelayout->Controls->Add(this->pictureBox2, 0, 0);
-			this->maintablelayout->Location = System::Drawing::Point(1, 143);
+			this->maintablelayout->Location = System::Drawing::Point(1, 163);
 			this->maintablelayout->Name = L"maintablelayout";
 			this->maintablelayout->RowCount = 2;
 			this->maintablelayout->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->maintablelayout->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->maintablelayout->Size = System::Drawing::Size(787, 344);
+			this->maintablelayout->Size = System::Drawing::Size(787, 324);
 			this->maintablelayout->TabIndex = 11;
 			this->maintablelayout->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainPage::maintablelayout_Paint);
 			// 
-			// pictureBox2
+			// pictureBox9
 			// 
-			this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(43, 3);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(110, 128);
-			this->pictureBox2->TabIndex = 0;
-			this->pictureBox2->TabStop = false;
+			this->pictureBox9->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox9->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
+			this->pictureBox9->Location = System::Drawing::Point(622, 165);
+			this->pictureBox9->Name = L"pictureBox9";
+			this->pictureBox9->Size = System::Drawing::Size(131, 128);
+			this->pictureBox9->TabIndex = 7;
+			this->pictureBox9->TabStop = false;
+			// 
+			// pictureBox8
+			// 
+			this->pictureBox8->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox8->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
+			this->pictureBox8->Location = System::Drawing::Point(427, 165);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(126, 128);
+			this->pictureBox8->TabIndex = 6;
+			this->pictureBox8->TabStop = false;
+			// 
+			// pictureBox7
+			// 
+			this->pictureBox7->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox7->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
+			this->pictureBox7->Location = System::Drawing::Point(231, 165);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(126, 128);
+			this->pictureBox7->TabIndex = 5;
+			this->pictureBox7->TabStop = false;
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox6->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
+			this->pictureBox6->Location = System::Drawing::Point(43, 165);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(110, 128);
+			this->pictureBox6->TabIndex = 4;
+			this->pictureBox6->TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox5->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			this->pictureBox5->Location = System::Drawing::Point(622, 3);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(130, 128);
+			this->pictureBox5->TabIndex = 3;
+			this->pictureBox5->TabStop = false;
 			// 
 			// pictureBox3
 			// 
@@ -374,83 +421,17 @@ namespace Project {
 			this->pictureBox4->TabIndex = 2;
 			this->pictureBox4->TabStop = false;
 			// 
-			// pictureBox5
+			// pictureBox2
 			// 
-			this->pictureBox5->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->pictureBox5->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-			this->pictureBox5->Location = System::Drawing::Point(622, 3);
-			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(130, 128);
-			this->pictureBox5->TabIndex = 3;
-			this->pictureBox5->TabStop = false;
-			// 
-			// pictureBox6
-			// 
-			this->pictureBox6->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->pictureBox6->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(43, 175);
-			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(110, 128);
-			this->pictureBox6->TabIndex = 4;
-			this->pictureBox6->TabStop = false;
-			// 
-			// pictureBox7
-			// 
-			this->pictureBox7->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->pictureBox7->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
-			this->pictureBox7->Location = System::Drawing::Point(231, 175);
-			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(126, 128);
-			this->pictureBox7->TabIndex = 5;
-			this->pictureBox7->TabStop = false;
-			// 
-			// pictureBox8
-			// 
-			this->pictureBox8->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->pictureBox8->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
-			this->pictureBox8->Location = System::Drawing::Point(427, 175);
-			this->pictureBox8->Name = L"pictureBox8";
-			this->pictureBox8->Size = System::Drawing::Size(126, 128);
-			this->pictureBox8->TabIndex = 6;
-			this->pictureBox8->TabStop = false;
-			// 
-			// pictureBox9
-			// 
-			this->pictureBox9->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->pictureBox9->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
-			this->pictureBox9->Location = System::Drawing::Point(622, 175);
-			this->pictureBox9->Name = L"pictureBox9";
-			this->pictureBox9->Size = System::Drawing::Size(131, 128);
-			this->pictureBox9->TabIndex = 7;
-			this->pictureBox9->TabStop = false;
-			// 
-			// label2
-			// 
-			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Maroon;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(543, 113);
-			this->label2->Name = L"label2";
-			this->label2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->label2->Size = System::Drawing::Size(233, 23);
-			this->label2->TabIndex = 12;
-			this->label2->Text = L"CURRENT INVENTORY";
-			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->label2->Click += gcnew System::EventHandler(this, &MainPage::label2_Click);
+			this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->Location = System::Drawing::Point(43, 3);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(110, 128);
+			this->pictureBox2->TabIndex = 0;
+			this->pictureBox2->TabStop = false;
 			// 
 			// MainPage
 			// 
@@ -458,7 +439,6 @@ namespace Project {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Maroon;
 			this->ClientSize = System::Drawing::Size(788, 488);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->maintablelayout);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->panel1);
@@ -472,16 +452,15 @@ namespace Project {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->maintablelayout->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
