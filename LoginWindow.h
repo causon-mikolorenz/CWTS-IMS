@@ -107,6 +107,7 @@ namespace Project {
 			this->UserEdit->Name = L"UserEdit";
 			this->UserEdit->Size = System::Drawing::Size(292, 19);
 			this->UserEdit->TabIndex = 1;
+			this->UserEdit->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &LoginWindow::UserEdit_KeyPress);
 			// 
 			// Userlabel
 			// 
@@ -155,6 +156,7 @@ namespace Project {
 			this->PasswordEdit->Size = System::Drawing::Size(292, 19);
 			this->PasswordEdit->TabIndex = 4;
 			this->PasswordEdit->UseSystemPasswordChar = true;
+			this->PasswordEdit->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &LoginWindow::PasswordEdit_KeyPress);
 			// 
 			// ShowPassword
 			// 
@@ -169,6 +171,7 @@ namespace Project {
 			// 
 			// LoginButton
 			// 
+			this->LoginButton->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->LoginButton->FlatAppearance->BorderSize = 2;
 			this->LoginButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->LoginButton->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -185,6 +188,7 @@ namespace Project {
 			// ExitButton
 			// 
 			this->ExitButton->BackColor = System::Drawing::Color::Maroon;
+			this->ExitButton->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->ExitButton->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			this->ExitButton->FlatAppearance->BorderSize = 2;
 			this->ExitButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -271,6 +275,16 @@ private: System::Void LoginWindow_MouseMove(System::Object^ sender, System::Wind
 	if (dragging) {
 		Point CurrentScreenPosition = PointToScreen(Point(e->X, e->Y));
 		Location = Point(CurrentScreenPosition.X - offset.X, CurrentScreenPosition.Y - offset.Y);
+	}
+}
+private: System::Void UserEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == (int)Keys::Enter) {
+		PasswordEdit->Focus();
+	}
+}
+private: System::Void PasswordEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == (int)Keys::Enter) {
+		LoginButton->PerformClick();
 	}
 }
 };
