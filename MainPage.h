@@ -18,6 +18,9 @@ namespace Project {
 		MainPage(void)
 		{
 			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
 		}
 
 	protected:
@@ -31,20 +34,15 @@ namespace Project {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Panel^ TopBG;
+	private: System::Windows::Forms::Panel^ panel1;
 	protected:
-
-	private: System::Windows::Forms::Label^ ProjectLabel;
-	private: System::Windows::Forms::PictureBox^ Logo;
-	protected:
-
-
-
-
-
-
-
-
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+	private: System::Windows::Forms::Button^ DashboardBtn;
+	private: System::Windows::Forms::Button^ BRBtn;
+	private: System::Windows::Forms::Button^ LogBtn;
+	private: System::Windows::Forms::Button^ HomeBtn;
 	private: System::Windows::Forms::Button^ ExitBtn;
 
 	private: System::Windows::Forms::Button^ HomeBtn;
@@ -677,7 +675,7 @@ private: System::Windows::Forms::Label^ Tingtingr;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
+		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -1952,7 +1950,7 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->ResumeLayout(false);
             this->PerformLayout();
 
-        }
+		}
 #pragma endregion
 
 	private: System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
