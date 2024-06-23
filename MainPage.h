@@ -73,7 +73,8 @@ namespace Project {
     private: System::Windows::Forms::TableLayoutPanel^ ButtonPanel;
     private: System::Windows::Forms::Panel^ BorrowingPanel;
     private: System::Windows::Forms::Panel^ HomeTab;
-    private: System::Windows::Forms::Label^ HomeLabel;
+    private: System::Windows::Forms::Label^ HomeLabell;
+
     private: System::Windows::Forms::Panel^ ReturnTab;
 
 
@@ -730,15 +731,37 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->BorrowedNum = (gcnew System::Windows::Forms::Label());
             this->TableHeader = (gcnew System::Windows::Forms::Label());
             this->DustPanMax = (gcnew System::Windows::Forms::Label());
-            this->HomeLabel = (gcnew System::Windows::Forms::Label());
+            this->HomeLabell = (gcnew System::Windows::Forms::Label());
             this->ReturnTab = (gcnew System::Windows::Forms::Panel());
+            this->ReturnButton = (gcnew System::Windows::Forms::Button());
+            this->textBox13 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+            this->label2 = (gcnew System::Windows::Forms::Label());
             this->BorrowLabel = (gcnew System::Windows::Forms::Label());
             this->BorrowTab = (gcnew System::Windows::Forms::Panel());
             this->BorrowButton = (gcnew System::Windows::Forms::Button());
+            this->textBox11 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox10 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox6 = (gcnew System::Windows::Forms::TextBox());
             this->textBox3 = (gcnew System::Windows::Forms::TextBox());
             this->textBox2 = (gcnew System::Windows::Forms::TextBox());
             this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+            this->DesigR = (gcnew System::Windows::Forms::Label());
+            this->ProgramR = (gcnew System::Windows::Forms::Label());
             this->NameR = (gcnew System::Windows::Forms::Label());
+            this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+            this->Pandiligr = (gcnew System::Windows::Forms::Label());
+            this->Shovelr = (gcnew System::Windows::Forms::Label());
+            this->Scissorr = (gcnew System::Windows::Forms::Label());
+            this->Mopr = (gcnew System::Windows::Forms::Label());
+            this->Timbar = (gcnew System::Windows::Forms::Label());
+            this->DustPanr = (gcnew System::Windows::Forms::Label());
+            this->Tambor = (gcnew System::Windows::Forms::Label());
+            this->Tingtingr = (gcnew System::Windows::Forms::Label());
             this->ReturnMsg = (gcnew System::Windows::Forms::Label());
             this->label1 = (gcnew System::Windows::Forms::Label());
             this->DateandTimeR = (gcnew System::Windows::Forms::Label());
@@ -747,28 +770,6 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->Logs = (gcnew System::Windows::Forms::TextBox());
             this->HistoryLabel = (gcnew System::Windows::Forms::Label());
             this->Timer = (gcnew System::Windows::Forms::Timer(this->components));
-            this->textBox12 = (gcnew System::Windows::Forms::TextBox());
-            this->label2 = (gcnew System::Windows::Forms::Label());
-            this->textBox13 = (gcnew System::Windows::Forms::TextBox());
-            this->ReturnButton = (gcnew System::Windows::Forms::Button());
-            this->Tambor = (gcnew System::Windows::Forms::Label());
-            this->DustPanr = (gcnew System::Windows::Forms::Label());
-            this->Timbar = (gcnew System::Windows::Forms::Label());
-            this->Mopr = (gcnew System::Windows::Forms::Label());
-            this->Scissorr = (gcnew System::Windows::Forms::Label());
-            this->Shovelr = (gcnew System::Windows::Forms::Label());
-            this->Pandiligr = (gcnew System::Windows::Forms::Label());
-            this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-            this->ProgramR = (gcnew System::Windows::Forms::Label());
-            this->DesigR = (gcnew System::Windows::Forms::Label());
-            this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox8 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox9 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox10 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox11 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-            this->Tingtingr = (gcnew System::Windows::Forms::Label());
             this->TopBG->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Logo))->BeginInit();
             this->HomePanel->SuspendLayout();
@@ -1000,7 +1001,7 @@ private: System::Windows::Forms::Label^ Tingtingr;
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->HomeTab->Controls->Add(this->DashboardTable);
-            this->HomeTab->Controls->Add(this->HomeLabel);
+            this->HomeTab->Controls->Add(this->HomeLabell);
             this->HomeTab->Location = System::Drawing::Point(0, 138);
             this->HomeTab->Name = L"HomeTab";
             this->HomeTab->Size = System::Drawing::Size(788, 350);
@@ -1421,20 +1422,20 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->DustPanMax->Text = L"67";
             this->DustPanMax->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
             // 
-            // HomeLabel
+            // HomeLabell
             // 
-            this->HomeLabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->HomeLabell->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->HomeLabel->AutoSize = true;
-            this->HomeLabel->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->HomeLabell->AutoSize = true;
+            this->HomeLabell->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->HomeLabel->ForeColor = System::Drawing::Color::Maroon;
-            this->HomeLabel->Location = System::Drawing::Point(17, 15);
-            this->HomeLabel->Name = L"HomeLabel";
-            this->HomeLabel->Size = System::Drawing::Size(315, 40);
-            this->HomeLabel->TabIndex = 0;
-            this->HomeLabel->Text = L"Home/Dashboard";
+            this->HomeLabell->ForeColor = System::Drawing::Color::Maroon;
+            this->HomeLabell->Location = System::Drawing::Point(17, 15);
+            this->HomeLabell->Name = L"HomeLabell";
+            this->HomeLabell->Size = System::Drawing::Size(315, 40);
+            this->HomeLabell->TabIndex = 0;
+            this->HomeLabell->Text = L"Home/Dashboard";
             // 
             // ReturnTab
             // 
@@ -1450,6 +1451,61 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->ReturnTab->Name = L"ReturnTab";
             this->ReturnTab->Size = System::Drawing::Size(788, 350);
             this->ReturnTab->TabIndex = 3;
+            // 
+            // ReturnButton
+            // 
+            this->ReturnButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->ReturnButton->BackColor = System::Drawing::Color::Maroon;
+            this->ReturnButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->ReturnButton->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
+            this->ReturnButton->FlatAppearance->BorderSize = 2;
+            this->ReturnButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->ReturnButton->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->ReturnButton->ForeColor = System::Drawing::Color::White;
+            this->ReturnButton->Location = System::Drawing::Point(637, 296);
+            this->ReturnButton->Name = L"ReturnButton";
+            this->ReturnButton->Size = System::Drawing::Size(107, 32);
+            this->ReturnButton->TabIndex = 27;
+            this->ReturnButton->Text = L"Return All";
+            this->ReturnButton->UseVisualStyleBackColor = false;
+            // 
+            // textBox13
+            // 
+            this->textBox13->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->textBox13->BackColor = System::Drawing::SystemColors::ScrollBar;
+            this->textBox13->Location = System::Drawing::Point(29, 82);
+            this->textBox13->Multiline = true;
+            this->textBox13->Name = L"textBox13";
+            this->textBox13->ReadOnly = true;
+            this->textBox13->Size = System::Drawing::Size(715, 208);
+            this->textBox13->TabIndex = 26;
+            // 
+            // textBox12
+            // 
+            this->textBox12->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->textBox12->Location = System::Drawing::Point(134, 49);
+            this->textBox12->Name = L"textBox12";
+            this->textBox12->Size = System::Drawing::Size(271, 20);
+            this->textBox12->TabIndex = 25;
+            // 
+            // label2
+            // 
+            this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->label2->AutoSize = true;
+            this->label2->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->label2->Location = System::Drawing::Point(36, 51);
+            this->label2->Name = L"label2";
+            this->label2->Size = System::Drawing::Size(91, 18);
+            this->label2->TabIndex = 24;
+            this->label2->Text = L"Borrow Id:";
             // 
             // BorrowLabel
             // 
@@ -1519,6 +1575,60 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->BorrowButton->Text = L"Borrow";
             this->BorrowButton->UseVisualStyleBackColor = false;
             // 
+            // textBox11
+            // 
+            this->textBox11->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox11->Location = System::Drawing::Point(152, 303);
+            this->textBox11->Name = L"textBox11";
+            this->textBox11->Size = System::Drawing::Size(225, 20);
+            this->textBox11->TabIndex = 31;
+            // 
+            // textBox10
+            // 
+            this->textBox10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox10->Location = System::Drawing::Point(98, 280);
+            this->textBox10->Name = L"textBox10";
+            this->textBox10->Size = System::Drawing::Size(279, 20);
+            this->textBox10->TabIndex = 30;
+            // 
+            // textBox9
+            // 
+            this->textBox9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox9->Location = System::Drawing::Point(202, 255);
+            this->textBox9->Name = L"textBox9";
+            this->textBox9->Size = System::Drawing::Size(175, 20);
+            this->textBox9->TabIndex = 29;
+            // 
+            // textBox8
+            // 
+            this->textBox8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox8->Location = System::Drawing::Point(77, 230);
+            this->textBox8->Name = L"textBox8";
+            this->textBox8->Size = System::Drawing::Size(300, 20);
+            this->textBox8->TabIndex = 28;
+            // 
+            // textBox7
+            // 
+            this->textBox7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox7->Location = System::Drawing::Point(101, 202);
+            this->textBox7->Name = L"textBox7";
+            this->textBox7->Size = System::Drawing::Size(276, 20);
+            this->textBox7->TabIndex = 27;
+            // 
+            // textBox6
+            // 
+            this->textBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox6->Location = System::Drawing::Point(116, 176);
+            this->textBox6->Name = L"textBox6";
+            this->textBox6->Size = System::Drawing::Size(261, 20);
+            this->textBox6->TabIndex = 26;
+            // 
             // textBox3
             // 
             this->textBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -1549,6 +1659,34 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->textBox1->Size = System::Drawing::Size(271, 20);
             this->textBox1->TabIndex = 23;
             // 
+            // DesigR
+            // 
+            this->DesigR->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->DesigR->AutoSize = true;
+            this->DesigR->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->DesigR->Location = System::Drawing::Point(408, 170);
+            this->DesigR->Name = L"DesigR";
+            this->DesigR->Size = System::Drawing::Size(108, 18);
+            this->DesigR->TabIndex = 22;
+            this->DesigR->Text = L"Designation:";
+            // 
+            // ProgramR
+            // 
+            this->ProgramR->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->ProgramR->AutoSize = true;
+            this->ProgramR->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->ProgramR->Location = System::Drawing::Point(408, 145);
+            this->ProgramR->Name = L"ProgramR";
+            this->ProgramR->Size = System::Drawing::Size(82, 18);
+            this->ProgramR->TabIndex = 21;
+            this->ProgramR->Text = L"Program:";
+            // 
             // NameR
             // 
             this->NameR->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -1562,6 +1700,128 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->NameR->Size = System::Drawing::Size(59, 18);
             this->NameR->TabIndex = 20;
             this->NameR->Text = L"Name:";
+            // 
+            // textBox5
+            // 
+            this->textBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox5->Location = System::Drawing::Point(144, 150);
+            this->textBox5->Name = L"textBox5";
+            this->textBox5->Size = System::Drawing::Size(233, 20);
+            this->textBox5->TabIndex = 19;
+            // 
+            // textBox4
+            // 
+            this->textBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->textBox4->Location = System::Drawing::Point(154, 120);
+            this->textBox4->Name = L"textBox4";
+            this->textBox4->Size = System::Drawing::Size(223, 20);
+            this->textBox4->TabIndex = 18;
+            // 
+            // Pandiligr
+            // 
+            this->Pandiligr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->Pandiligr->AutoSize = true;
+            this->Pandiligr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Pandiligr->Location = System::Drawing::Point(25, 306);
+            this->Pandiligr->Name = L"Pandiligr";
+            this->Pandiligr->Size = System::Drawing::Size(121, 18);
+            this->Pandiligr->TabIndex = 14;
+            this->Pandiligr->Text = L"Watering Can:";
+            // 
+            // Shovelr
+            // 
+            this->Shovelr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->Shovelr->AutoSize = true;
+            this->Shovelr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Shovelr->Location = System::Drawing::Point(25, 279);
+            this->Shovelr->Name = L"Shovelr";
+            this->Shovelr->Size = System::Drawing::Size(67, 18);
+            this->Shovelr->TabIndex = 13;
+            this->Shovelr->Text = L"Shovel:";
+            // 
+            // Scissorr
+            // 
+            this->Scissorr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->Scissorr->AutoSize = true;
+            this->Scissorr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Scissorr->Location = System::Drawing::Point(25, 254);
+            this->Scissorr->Name = L"Scissorr";
+            this->Scissorr->Size = System::Drawing::Size(170, 18);
+            this->Scissorr->TabIndex = 12;
+            this->Scissorr->Text = L"Gardening Scissors:";
+            // 
+            // Mopr
+            // 
+            this->Mopr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->Mopr->AutoSize = true;
+            this->Mopr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Mopr->Location = System::Drawing::Point(25, 228);
+            this->Mopr->Name = L"Mopr";
+            this->Mopr->Size = System::Drawing::Size(46, 18);
+            this->Mopr->TabIndex = 11;
+            this->Mopr->Text = L"Mop:";
+            // 
+            // Timbar
+            // 
+            this->Timbar->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->Timbar->AutoSize = true;
+            this->Timbar->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Timbar->Location = System::Drawing::Point(25, 204);
+            this->Timbar->Name = L"Timbar";
+            this->Timbar->Size = System::Drawing::Size(70, 18);
+            this->Timbar->TabIndex = 10;
+            this->Timbar->Text = L"Bucket:";
+            // 
+            // DustPanr
+            // 
+            this->DustPanr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->DustPanr->AutoSize = true;
+            this->DustPanr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->DustPanr->Location = System::Drawing::Point(25, 178);
+            this->DustPanr->Name = L"DustPanr";
+            this->DustPanr->Size = System::Drawing::Size(85, 18);
+            this->DustPanr->TabIndex = 9;
+            this->DustPanr->Text = L"Dust Pan:";
+            // 
+            // Tambor
+            // 
+            this->Tambor->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->Tambor->AutoSize = true;
+            this->Tambor->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Tambor->Location = System::Drawing::Point(25, 149);
+            this->Tambor->Name = L"Tambor";
+            this->Tambor->Size = System::Drawing::Size(113, 18);
+            this->Tambor->TabIndex = 8;
+            this->Tambor->Text = L"Walis Tambo:";
+            // 
+            // Tingtingr
+            // 
+            this->Tingtingr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left));
+            this->Tingtingr->AutoSize = true;
+            this->Tingtingr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Tingtingr->Location = System::Drawing::Point(25, 119);
+            this->Tingtingr->Name = L"Tingtingr";
+            this->Tingtingr->Size = System::Drawing::Size(123, 18);
+            this->Tingtingr->TabIndex = 7;
+            this->Tingtingr->Text = L"Walis Tingting:";
             // 
             // ReturnMsg
             // 
@@ -1655,265 +1915,6 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->HistoryLabel->Size = System::Drawing::Size(398, 40);
             this->HistoryLabel->TabIndex = 0;
             this->HistoryLabel->Text = L"Borrow/Return History";
-            // 
-            // textBox12
-            // 
-            this->textBox12->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->textBox12->Location = System::Drawing::Point(134, 49);
-            this->textBox12->Name = L"textBox12";
-            this->textBox12->Size = System::Drawing::Size(271, 20);
-            this->textBox12->TabIndex = 25;
-            // 
-            // label2
-            // 
-            this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->label2->AutoSize = true;
-            this->label2->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label2->Location = System::Drawing::Point(36, 51);
-            this->label2->Name = L"label2";
-            this->label2->Size = System::Drawing::Size(91, 18);
-            this->label2->TabIndex = 24;
-            this->label2->Text = L"Borrow Id:";
-            // 
-            // textBox13
-            // 
-            this->textBox13->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->textBox13->BackColor = System::Drawing::SystemColors::ScrollBar;
-            this->textBox13->Location = System::Drawing::Point(29, 82);
-            this->textBox13->Multiline = true;
-            this->textBox13->Name = L"textBox13";
-            this->textBox13->ReadOnly = true;
-            this->textBox13->Size = System::Drawing::Size(715, 208);
-            this->textBox13->TabIndex = 26;
-            // 
-            // ReturnButton
-            // 
-            this->ReturnButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-            this->ReturnButton->BackColor = System::Drawing::Color::Maroon;
-            this->ReturnButton->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->ReturnButton->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
-            this->ReturnButton->FlatAppearance->BorderSize = 2;
-            this->ReturnButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->ReturnButton->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->ReturnButton->ForeColor = System::Drawing::Color::White;
-            this->ReturnButton->Location = System::Drawing::Point(637, 296);
-            this->ReturnButton->Name = L"ReturnButton";
-            this->ReturnButton->Size = System::Drawing::Size(107, 32);
-            this->ReturnButton->TabIndex = 27;
-            this->ReturnButton->Text = L"Return All";
-            this->ReturnButton->UseVisualStyleBackColor = false;
-            // 
-            // Tambor
-            // 
-            this->Tambor->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->Tambor->AutoSize = true;
-            this->Tambor->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->Tambor->Location = System::Drawing::Point(25, 149);
-            this->Tambor->Name = L"Tambor";
-            this->Tambor->Size = System::Drawing::Size(113, 18);
-            this->Tambor->TabIndex = 8;
-            this->Tambor->Text = L"Walis Tambo:";
-            // 
-            // DustPanr
-            // 
-            this->DustPanr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->DustPanr->AutoSize = true;
-            this->DustPanr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->DustPanr->Location = System::Drawing::Point(25, 178);
-            this->DustPanr->Name = L"DustPanr";
-            this->DustPanr->Size = System::Drawing::Size(85, 18);
-            this->DustPanr->TabIndex = 9;
-            this->DustPanr->Text = L"Dust Pan:";
-            // 
-            // Timbar
-            // 
-            this->Timbar->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->Timbar->AutoSize = true;
-            this->Timbar->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->Timbar->Location = System::Drawing::Point(25, 204);
-            this->Timbar->Name = L"Timbar";
-            this->Timbar->Size = System::Drawing::Size(70, 18);
-            this->Timbar->TabIndex = 10;
-            this->Timbar->Text = L"Bucket:";
-            // 
-            // Mopr
-            // 
-            this->Mopr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->Mopr->AutoSize = true;
-            this->Mopr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->Mopr->Location = System::Drawing::Point(25, 228);
-            this->Mopr->Name = L"Mopr";
-            this->Mopr->Size = System::Drawing::Size(46, 18);
-            this->Mopr->TabIndex = 11;
-            this->Mopr->Text = L"Mop:";
-            // 
-            // Scissorr
-            // 
-            this->Scissorr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->Scissorr->AutoSize = true;
-            this->Scissorr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->Scissorr->Location = System::Drawing::Point(25, 254);
-            this->Scissorr->Name = L"Scissorr";
-            this->Scissorr->Size = System::Drawing::Size(170, 18);
-            this->Scissorr->TabIndex = 12;
-            this->Scissorr->Text = L"Gardening Scissors:";
-            // 
-            // Shovelr
-            // 
-            this->Shovelr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->Shovelr->AutoSize = true;
-            this->Shovelr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->Shovelr->Location = System::Drawing::Point(25, 279);
-            this->Shovelr->Name = L"Shovelr";
-            this->Shovelr->Size = System::Drawing::Size(67, 18);
-            this->Shovelr->TabIndex = 13;
-            this->Shovelr->Text = L"Shovel:";
-            // 
-            // Pandiligr
-            // 
-            this->Pandiligr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->Pandiligr->AutoSize = true;
-            this->Pandiligr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->Pandiligr->Location = System::Drawing::Point(25, 306);
-            this->Pandiligr->Name = L"Pandiligr";
-            this->Pandiligr->Size = System::Drawing::Size(121, 18);
-            this->Pandiligr->TabIndex = 14;
-            this->Pandiligr->Text = L"Watering Can:";
-            // 
-            // textBox5
-            // 
-            this->textBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox5->Location = System::Drawing::Point(144, 150);
-            this->textBox5->Name = L"textBox5";
-            this->textBox5->Size = System::Drawing::Size(233, 20);
-            this->textBox5->TabIndex = 19;
-            // 
-            // ProgramR
-            // 
-            this->ProgramR->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->ProgramR->AutoSize = true;
-            this->ProgramR->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->ProgramR->Location = System::Drawing::Point(408, 145);
-            this->ProgramR->Name = L"ProgramR";
-            this->ProgramR->Size = System::Drawing::Size(82, 18);
-            this->ProgramR->TabIndex = 21;
-            this->ProgramR->Text = L"Program:";
-            // 
-            // DesigR
-            // 
-            this->DesigR->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->DesigR->AutoSize = true;
-            this->DesigR->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->DesigR->Location = System::Drawing::Point(408, 170);
-            this->DesigR->Name = L"DesigR";
-            this->DesigR->Size = System::Drawing::Size(108, 18);
-            this->DesigR->TabIndex = 22;
-            this->DesigR->Text = L"Designation:";
-            // 
-            // textBox6
-            // 
-            this->textBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox6->Location = System::Drawing::Point(116, 176);
-            this->textBox6->Name = L"textBox6";
-            this->textBox6->Size = System::Drawing::Size(261, 20);
-            this->textBox6->TabIndex = 26;
-            // 
-            // textBox7
-            // 
-            this->textBox7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox7->Location = System::Drawing::Point(101, 202);
-            this->textBox7->Name = L"textBox7";
-            this->textBox7->Size = System::Drawing::Size(276, 20);
-            this->textBox7->TabIndex = 27;
-            // 
-            // textBox8
-            // 
-            this->textBox8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox8->Location = System::Drawing::Point(77, 230);
-            this->textBox8->Name = L"textBox8";
-            this->textBox8->Size = System::Drawing::Size(300, 20);
-            this->textBox8->TabIndex = 28;
-            // 
-            // textBox9
-            // 
-            this->textBox9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox9->Location = System::Drawing::Point(202, 255);
-            this->textBox9->Name = L"textBox9";
-            this->textBox9->Size = System::Drawing::Size(175, 20);
-            this->textBox9->TabIndex = 29;
-            // 
-            // textBox10
-            // 
-            this->textBox10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox10->Location = System::Drawing::Point(98, 280);
-            this->textBox10->Name = L"textBox10";
-            this->textBox10->Size = System::Drawing::Size(279, 20);
-            this->textBox10->TabIndex = 30;
-            // 
-            // textBox11
-            // 
-            this->textBox11->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox11->Location = System::Drawing::Point(152, 303);
-            this->textBox11->Name = L"textBox11";
-            this->textBox11->Size = System::Drawing::Size(225, 20);
-            this->textBox11->TabIndex = 31;
-            // 
-            // textBox4
-            // 
-            this->textBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox4->Location = System::Drawing::Point(154, 120);
-            this->textBox4->Name = L"textBox4";
-            this->textBox4->Size = System::Drawing::Size(223, 20);
-            this->textBox4->TabIndex = 18;
-            // 
-            // Tingtingr
-            // 
-            this->Tingtingr->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left));
-            this->Tingtingr->AutoSize = true;
-            this->Tingtingr->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->Tingtingr->Location = System::Drawing::Point(25, 119);
-            this->Tingtingr->Name = L"Tingtingr";
-            this->Tingtingr->Size = System::Drawing::Size(123, 18);
-            this->Tingtingr->TabIndex = 7;
-            this->Tingtingr->Text = L"Walis Tingting:";
             // 
             // MainPage
             // 
