@@ -107,6 +107,7 @@ namespace Project {
 			this->UserEdit->Name = L"UserEdit";
 			this->UserEdit->Size = System::Drawing::Size(292, 19);
 			this->UserEdit->TabIndex = 1;
+			this->UserEdit->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &LoginWindow::UserEdit_KeyPress);
 			// 
 			// Userlabel
 			// 
@@ -155,6 +156,7 @@ namespace Project {
 			this->PasswordEdit->Size = System::Drawing::Size(292, 19);
 			this->PasswordEdit->TabIndex = 4;
 			this->PasswordEdit->UseSystemPasswordChar = true;
+			this->PasswordEdit->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &LoginWindow::PasswordEdit_KeyPress);
 			// 
 			// ShowPassword
 			// 
@@ -238,8 +240,10 @@ namespace Project {
 
 		}
 #pragma endregion
+		String^ admin = "admin";
+		String^ pass = "pass";
 private: System::Void LoginButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (UserEdit->Text == "admin" && PasswordEdit->Text == "pass") { 
+	if (UserEdit->Text == admin && PasswordEdit->Text == pass) { 
 		this->Hide();
 		MainPage mainp;
 		mainp.ShowDialog();
@@ -273,5 +277,12 @@ private: System::Void LoginWindow_MouseMove(System::Object^ sender, System::Wind
 		Location = Point(CurrentScreenPosition.X - offset.X, CurrentScreenPosition.Y - offset.Y);
 	}
 }
+private: System::Void UserEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == (int)Keys::Enter)
+		PasswordEdit->Focus();
+}
+private: System::Void PasswordEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+}	(e->KeyChar == (int)Keys::Enter)
+	Loginbutton->Click();
 };
 }

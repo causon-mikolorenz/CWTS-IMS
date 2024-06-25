@@ -164,8 +164,9 @@ private: System::Windows::Forms::Label^ Timbaleft;
 
 private: System::Windows::Forms::Label^ TimbaLabel;
 private: System::Windows::Forms::TextBox^ Logs;
+private: System::Windows::Forms::Label^ date;
 
-private: System::Windows::Forms::Label^ label1;
+
 private: System::Windows::Forms::Label^ DateandTimeR;
 
 
@@ -174,6 +175,7 @@ private: System::Windows::Forms::Timer^ Timer;
 
 
 private: System::Windows::Forms::Label^ ReturnMsg;
+private: System::Windows::Forms::TextBox^ desiginput;
 
 
 
@@ -189,27 +191,38 @@ private: System::Windows::Forms::Label^ ReturnMsg;
 
 
 
-private: System::Windows::Forms::TextBox^ textBox3;
-private: System::Windows::Forms::TextBox^ textBox2;
-private: System::Windows::Forms::TextBox^ textBox1;
+
+private: System::Windows::Forms::TextBox^ programinput;
+
+private: System::Windows::Forms::TextBox^ nameinput;
+
 
 
 private: System::Windows::Forms::Label^ NameR;
 private: System::Windows::Forms::Button^ BorrowButton;
-private: System::Windows::Forms::TextBox^ textBox12;
+private: System::Windows::Forms::TextBox^ idinput;
+
 private: System::Windows::Forms::Label^ label2;
 private: System::Windows::Forms::TextBox^ textBox13;
 private: System::Windows::Forms::Button^ ReturnButton;
-private: System::Windows::Forms::TextBox^ textBox11;
-private: System::Windows::Forms::TextBox^ textBox10;
-private: System::Windows::Forms::TextBox^ textBox9;
-private: System::Windows::Forms::TextBox^ textBox8;
-private: System::Windows::Forms::TextBox^ textBox7;
-private: System::Windows::Forms::TextBox^ textBox6;
+private: System::Windows::Forms::TextBox^ pandiliginput;
+
+private: System::Windows::Forms::TextBox^ palainput;
+
+private: System::Windows::Forms::TextBox^ scissorinput;
+
+private: System::Windows::Forms::TextBox^ mopinput;
+
+private: System::Windows::Forms::TextBox^ timbainput;
+
+private: System::Windows::Forms::TextBox^ dustpaninput;
+
 private: System::Windows::Forms::Label^ DesigR;
 private: System::Windows::Forms::Label^ ProgramR;
-private: System::Windows::Forms::TextBox^ textBox5;
-private: System::Windows::Forms::TextBox^ textBox4;
+private: System::Windows::Forms::TextBox^ tamboinput;
+
+private: System::Windows::Forms::TextBox^ Tingtinginput;
+
 private: System::Windows::Forms::Label^ Pandiligr;
 private: System::Windows::Forms::Label^ Shovelr;
 private: System::Windows::Forms::Label^ Scissorr;
@@ -218,6 +231,7 @@ private: System::Windows::Forms::Label^ Timbar;
 private: System::Windows::Forms::Label^ DustPanr;
 private: System::Windows::Forms::Label^ Tambor;
 private: System::Windows::Forms::Label^ Tingtingr;
+private: System::Windows::Forms::TextBox^ preview;
 
 
 
@@ -735,25 +749,26 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->ReturnTab = (gcnew System::Windows::Forms::Panel());
             this->ReturnButton = (gcnew System::Windows::Forms::Button());
             this->textBox13 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+            this->idinput = (gcnew System::Windows::Forms::TextBox());
             this->label2 = (gcnew System::Windows::Forms::Label());
             this->BorrowLabel = (gcnew System::Windows::Forms::Label());
             this->BorrowTab = (gcnew System::Windows::Forms::Panel());
+            this->preview = (gcnew System::Windows::Forms::TextBox());
             this->BorrowButton = (gcnew System::Windows::Forms::Button());
-            this->textBox11 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox10 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox9 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox8 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+            this->pandiliginput = (gcnew System::Windows::Forms::TextBox());
+            this->palainput = (gcnew System::Windows::Forms::TextBox());
+            this->scissorinput = (gcnew System::Windows::Forms::TextBox());
+            this->mopinput = (gcnew System::Windows::Forms::TextBox());
+            this->timbainput = (gcnew System::Windows::Forms::TextBox());
+            this->dustpaninput = (gcnew System::Windows::Forms::TextBox());
+            this->desiginput = (gcnew System::Windows::Forms::TextBox());
+            this->programinput = (gcnew System::Windows::Forms::TextBox());
+            this->nameinput = (gcnew System::Windows::Forms::TextBox());
             this->DesigR = (gcnew System::Windows::Forms::Label());
             this->ProgramR = (gcnew System::Windows::Forms::Label());
             this->NameR = (gcnew System::Windows::Forms::Label());
-            this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+            this->tamboinput = (gcnew System::Windows::Forms::TextBox());
+            this->Tingtinginput = (gcnew System::Windows::Forms::TextBox());
             this->Pandiligr = (gcnew System::Windows::Forms::Label());
             this->Shovelr = (gcnew System::Windows::Forms::Label());
             this->Scissorr = (gcnew System::Windows::Forms::Label());
@@ -763,7 +778,7 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->Tambor = (gcnew System::Windows::Forms::Label());
             this->Tingtingr = (gcnew System::Windows::Forms::Label());
             this->ReturnMsg = (gcnew System::Windows::Forms::Label());
-            this->label1 = (gcnew System::Windows::Forms::Label());
+            this->date = (gcnew System::Windows::Forms::Label());
             this->DateandTimeR = (gcnew System::Windows::Forms::Label());
             this->ReturnLabel = (gcnew System::Windows::Forms::Label());
             this->HistoryTab = (gcnew System::Windows::Forms::Panel());
@@ -1444,7 +1459,7 @@ private: System::Windows::Forms::Label^ Tingtingr;
                 | System::Windows::Forms::AnchorStyles::Right));
             this->ReturnTab->Controls->Add(this->ReturnButton);
             this->ReturnTab->Controls->Add(this->textBox13);
-            this->ReturnTab->Controls->Add(this->textBox12);
+            this->ReturnTab->Controls->Add(this->idinput);
             this->ReturnTab->Controls->Add(this->label2);
             this->ReturnTab->Controls->Add(this->BorrowLabel);
             this->ReturnTab->Location = System::Drawing::Point(0, 138);
@@ -1483,15 +1498,15 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->textBox13->Size = System::Drawing::Size(715, 208);
             this->textBox13->TabIndex = 26;
             // 
-            // textBox12
+            // idinput
             // 
-            this->textBox12->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->idinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->textBox12->Location = System::Drawing::Point(134, 49);
-            this->textBox12->Name = L"textBox12";
-            this->textBox12->Size = System::Drawing::Size(271, 20);
-            this->textBox12->TabIndex = 25;
+            this->idinput->Location = System::Drawing::Point(134, 49);
+            this->idinput->Name = L"idinput";
+            this->idinput->Size = System::Drawing::Size(271, 20);
+            this->idinput->TabIndex = 25;
             // 
             // label2
             // 
@@ -1525,21 +1540,22 @@ private: System::Windows::Forms::Label^ Tingtingr;
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->BorrowTab->AutoSize = true;
+            this->BorrowTab->Controls->Add(this->preview);
             this->BorrowTab->Controls->Add(this->BorrowButton);
-            this->BorrowTab->Controls->Add(this->textBox11);
-            this->BorrowTab->Controls->Add(this->textBox10);
-            this->BorrowTab->Controls->Add(this->textBox9);
-            this->BorrowTab->Controls->Add(this->textBox8);
-            this->BorrowTab->Controls->Add(this->textBox7);
-            this->BorrowTab->Controls->Add(this->textBox6);
-            this->BorrowTab->Controls->Add(this->textBox3);
-            this->BorrowTab->Controls->Add(this->textBox2);
-            this->BorrowTab->Controls->Add(this->textBox1);
+            this->BorrowTab->Controls->Add(this->pandiliginput);
+            this->BorrowTab->Controls->Add(this->palainput);
+            this->BorrowTab->Controls->Add(this->scissorinput);
+            this->BorrowTab->Controls->Add(this->mopinput);
+            this->BorrowTab->Controls->Add(this->timbainput);
+            this->BorrowTab->Controls->Add(this->dustpaninput);
+            this->BorrowTab->Controls->Add(this->desiginput);
+            this->BorrowTab->Controls->Add(this->programinput);
+            this->BorrowTab->Controls->Add(this->nameinput);
             this->BorrowTab->Controls->Add(this->DesigR);
             this->BorrowTab->Controls->Add(this->ProgramR);
             this->BorrowTab->Controls->Add(this->NameR);
-            this->BorrowTab->Controls->Add(this->textBox5);
-            this->BorrowTab->Controls->Add(this->textBox4);
+            this->BorrowTab->Controls->Add(this->tamboinput);
+            this->BorrowTab->Controls->Add(this->Tingtinginput);
             this->BorrowTab->Controls->Add(this->Pandiligr);
             this->BorrowTab->Controls->Add(this->Shovelr);
             this->BorrowTab->Controls->Add(this->Scissorr);
@@ -1549,13 +1565,26 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->BorrowTab->Controls->Add(this->Tambor);
             this->BorrowTab->Controls->Add(this->Tingtingr);
             this->BorrowTab->Controls->Add(this->ReturnMsg);
-            this->BorrowTab->Controls->Add(this->label1);
+            this->BorrowTab->Controls->Add(this->date);
             this->BorrowTab->Controls->Add(this->DateandTimeR);
             this->BorrowTab->Controls->Add(this->ReturnLabel);
             this->BorrowTab->Location = System::Drawing::Point(0, 138);
             this->BorrowTab->Name = L"BorrowTab";
             this->BorrowTab->Size = System::Drawing::Size(816, 350);
             this->BorrowTab->TabIndex = 4;
+            // 
+            // preview
+            // 
+            this->preview->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->preview->BackColor = System::Drawing::SystemColors::ControlLight;
+            this->preview->Location = System::Drawing::Point(38, 330);
+            this->preview->Multiline = true;
+            this->preview->Name = L"preview";
+            this->preview->ReadOnly = true;
+            this->preview->Size = System::Drawing::Size(707, 10);
+            this->preview->TabIndex = 33;
             // 
             // BorrowButton
             // 
@@ -1575,89 +1604,89 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->BorrowButton->Text = L"Borrow";
             this->BorrowButton->UseVisualStyleBackColor = false;
             // 
-            // textBox11
+            // pandiliginput
             // 
-            this->textBox11->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->pandiliginput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox11->Location = System::Drawing::Point(152, 303);
-            this->textBox11->Name = L"textBox11";
-            this->textBox11->Size = System::Drawing::Size(225, 20);
-            this->textBox11->TabIndex = 31;
+            this->pandiliginput->Location = System::Drawing::Point(152, 303);
+            this->pandiliginput->Name = L"pandiliginput";
+            this->pandiliginput->Size = System::Drawing::Size(225, 20);
+            this->pandiliginput->TabIndex = 31;
             // 
-            // textBox10
+            // palainput
             // 
-            this->textBox10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->palainput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox10->Location = System::Drawing::Point(98, 280);
-            this->textBox10->Name = L"textBox10";
-            this->textBox10->Size = System::Drawing::Size(279, 20);
-            this->textBox10->TabIndex = 30;
+            this->palainput->Location = System::Drawing::Point(98, 280);
+            this->palainput->Name = L"palainput";
+            this->palainput->Size = System::Drawing::Size(279, 20);
+            this->palainput->TabIndex = 30;
             // 
-            // textBox9
+            // scissorinput
             // 
-            this->textBox9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->scissorinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox9->Location = System::Drawing::Point(202, 255);
-            this->textBox9->Name = L"textBox9";
-            this->textBox9->Size = System::Drawing::Size(175, 20);
-            this->textBox9->TabIndex = 29;
+            this->scissorinput->Location = System::Drawing::Point(202, 255);
+            this->scissorinput->Name = L"scissorinput";
+            this->scissorinput->Size = System::Drawing::Size(175, 20);
+            this->scissorinput->TabIndex = 29;
             // 
-            // textBox8
+            // mopinput
             // 
-            this->textBox8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->mopinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox8->Location = System::Drawing::Point(77, 230);
-            this->textBox8->Name = L"textBox8";
-            this->textBox8->Size = System::Drawing::Size(300, 20);
-            this->textBox8->TabIndex = 28;
+            this->mopinput->Location = System::Drawing::Point(77, 230);
+            this->mopinput->Name = L"mopinput";
+            this->mopinput->Size = System::Drawing::Size(300, 20);
+            this->mopinput->TabIndex = 28;
             // 
-            // textBox7
+            // timbainput
             // 
-            this->textBox7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->timbainput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox7->Location = System::Drawing::Point(101, 202);
-            this->textBox7->Name = L"textBox7";
-            this->textBox7->Size = System::Drawing::Size(276, 20);
-            this->textBox7->TabIndex = 27;
+            this->timbainput->Location = System::Drawing::Point(101, 202);
+            this->timbainput->Name = L"timbainput";
+            this->timbainput->Size = System::Drawing::Size(276, 20);
+            this->timbainput->TabIndex = 27;
             // 
-            // textBox6
+            // dustpaninput
             // 
-            this->textBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->dustpaninput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox6->Location = System::Drawing::Point(116, 176);
-            this->textBox6->Name = L"textBox6";
-            this->textBox6->Size = System::Drawing::Size(261, 20);
-            this->textBox6->TabIndex = 26;
+            this->dustpaninput->Location = System::Drawing::Point(116, 176);
+            this->dustpaninput->Name = L"dustpaninput";
+            this->dustpaninput->Size = System::Drawing::Size(261, 20);
+            this->dustpaninput->TabIndex = 26;
             // 
-            // textBox3
+            // desiginput
             // 
-            this->textBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->desiginput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->textBox3->Location = System::Drawing::Point(522, 171);
-            this->textBox3->Name = L"textBox3";
-            this->textBox3->Size = System::Drawing::Size(222, 20);
-            this->textBox3->TabIndex = 25;
+            this->desiginput->Location = System::Drawing::Point(522, 171);
+            this->desiginput->Name = L"desiginput";
+            this->desiginput->Size = System::Drawing::Size(222, 20);
+            this->desiginput->TabIndex = 25;
             // 
-            // textBox2
+            // programinput
             // 
-            this->textBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->programinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->textBox2->Location = System::Drawing::Point(501, 145);
-            this->textBox2->Name = L"textBox2";
-            this->textBox2->Size = System::Drawing::Size(243, 20);
-            this->textBox2->TabIndex = 24;
+            this->programinput->Location = System::Drawing::Point(501, 145);
+            this->programinput->Name = L"programinput";
+            this->programinput->Size = System::Drawing::Size(243, 20);
+            this->programinput->TabIndex = 24;
             // 
-            // textBox1
+            // nameinput
             // 
-            this->textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->nameinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->textBox1->Location = System::Drawing::Point(473, 119);
-            this->textBox1->Name = L"textBox1";
-            this->textBox1->Size = System::Drawing::Size(271, 20);
-            this->textBox1->TabIndex = 23;
+            this->nameinput->Location = System::Drawing::Point(473, 119);
+            this->nameinput->Name = L"nameinput";
+            this->nameinput->Size = System::Drawing::Size(271, 20);
+            this->nameinput->TabIndex = 23;
             // 
             // DesigR
             // 
@@ -1701,23 +1730,23 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->NameR->TabIndex = 20;
             this->NameR->Text = L"Name:";
             // 
-            // textBox5
+            // tamboinput
             // 
-            this->textBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->tamboinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox5->Location = System::Drawing::Point(144, 150);
-            this->textBox5->Name = L"textBox5";
-            this->textBox5->Size = System::Drawing::Size(233, 20);
-            this->textBox5->TabIndex = 19;
+            this->tamboinput->Location = System::Drawing::Point(144, 150);
+            this->tamboinput->Name = L"tamboinput";
+            this->tamboinput->Size = System::Drawing::Size(233, 20);
+            this->tamboinput->TabIndex = 19;
             // 
-            // textBox4
+            // Tingtinginput
             // 
-            this->textBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->Tingtinginput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->textBox4->Location = System::Drawing::Point(154, 120);
-            this->textBox4->Name = L"textBox4";
-            this->textBox4->Size = System::Drawing::Size(223, 20);
-            this->textBox4->TabIndex = 18;
+            this->Tingtinginput->Location = System::Drawing::Point(154, 120);
+            this->Tingtinginput->Name = L"Tingtinginput";
+            this->Tingtinginput->Size = System::Drawing::Size(223, 20);
+            this->Tingtinginput->TabIndex = 18;
             // 
             // Pandiligr
             // 
@@ -1837,18 +1866,18 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->ReturnMsg->TabIndex = 6;
             this->ReturnMsg->Text = L"State the amount to borrow:";
             // 
-            // label1
+            // date
             // 
-            this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->date->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left));
-            this->label1->AutoSize = true;
-            this->label1->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->date->AutoSize = true;
+            this->date->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label1->Location = System::Drawing::Point(156, 52);
-            this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(122, 18);
-            this->label1->TabIndex = 5;
-            this->label1->Text = L"Date and Time";
+            this->date->Location = System::Drawing::Point(156, 52);
+            this->date->Name = L"date";
+            this->date->Size = System::Drawing::Size(122, 18);
+            this->date->TabIndex = 5;
+            this->date->Text = L"Date and Time";
             // 
             // DateandTimeR
             // 
@@ -1916,6 +1945,10 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->HistoryLabel->TabIndex = 0;
             this->HistoryLabel->Text = L"Borrow/Return History";
             // 
+            // Timer
+            // 
+            this->Timer->Tick += gcnew System::EventHandler(this, &MainPage::Timer_Tick);
+            // 
             // MainPage
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1932,6 +1965,7 @@ private: System::Windows::Forms::Label^ Tingtingr;
             this->Name = L"MainPage";
             this->Text = L"MainPage";
             this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+            this->Load += gcnew System::EventHandler(this, &MainPage::MainPage_Load);
             this->TopBG->ResumeLayout(false);
             this->TopBG->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Logo))->EndInit();
@@ -1955,38 +1989,43 @@ private: System::Windows::Forms::Label^ Tingtingr;
 
         }
 #pragma endregion
-
+    private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
+        Timer->Start();
+    }
 	private: System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		Close();
 	}
 
-private: System::Void HomeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	HomePanel->BackColor = System::Drawing::Color::Maroon;
-	BorrowingPanel->BackColor = System::Drawing::Color::Snow;
-	ReturningPanel->BackColor = System::Drawing::Color::Snow;
-	HistoryPanel->BackColor = System::Drawing::Color::Snow;
-    HomeTab->BringToFront();
-}
-private: System::Void BorrowBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	HomePanel->BackColor = System::Drawing::Color::Snow;
-	BorrowingPanel->BackColor = System::Drawing::Color::Maroon;
-	ReturningPanel->BackColor = System::Drawing::Color::Snow;
-	HistoryPanel->BackColor = System::Drawing::Color::Snow;
-    BorrowTab->BringToFront();
-}
-private: System::Void ReturnBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	HomePanel->BackColor = System::Drawing::Color::Snow;
-	BorrowingPanel->BackColor = System::Drawing::Color::Snow;
-	ReturningPanel->BackColor = System::Drawing::Color::Maroon;
-	HistoryPanel->BackColor = System::Drawing::Color::Snow;
-    ReturnTab->BringToFront();
-}
-private: System::Void HistoryBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	HomePanel->BackColor = System::Drawing::Color::Snow;
-	BorrowingPanel->BackColor = System::Drawing::Color::Snow;
-	ReturningPanel->BackColor = System::Drawing::Color::Snow;
-	HistoryPanel->BackColor = System::Drawing::Color::Maroon;
-    HistoryTab->BringToFront();
-}
+    private: System::Void HomeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	    HomePanel->BackColor = System::Drawing::Color::Maroon;
+	    BorrowingPanel->BackColor = System::Drawing::Color::Snow;
+	    ReturningPanel->BackColor = System::Drawing::Color::Snow;
+	    HistoryPanel->BackColor = System::Drawing::Color::Snow;
+        HomeTab->BringToFront();
+    }
+    private: System::Void BorrowBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	    HomePanel->BackColor = System::Drawing::Color::Snow;
+	    BorrowingPanel->BackColor = System::Drawing::Color::Maroon;
+	    ReturningPanel->BackColor = System::Drawing::Color::Snow;
+	    HistoryPanel->BackColor = System::Drawing::Color::Snow;
+        BorrowTab->BringToFront();
+    }
+    private: System::Void ReturnBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	    HomePanel->BackColor = System::Drawing::Color::Snow;
+	    BorrowingPanel->BackColor = System::Drawing::Color::Snow;
+	    ReturningPanel->BackColor = System::Drawing::Color::Maroon;
+	    HistoryPanel->BackColor = System::Drawing::Color::Snow;
+        ReturnTab->BringToFront();
+    }
+    private: System::Void HistoryBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	    HomePanel->BackColor = System::Drawing::Color::Snow;
+	    BorrowingPanel->BackColor = System::Drawing::Color::Snow;
+	    ReturningPanel->BackColor = System::Drawing::Color::Snow;
+	    HistoryPanel->BackColor = System::Drawing::Color::Maroon;
+        HistoryTab->BringToFront();
+    }
+    private: System::Void Timer_Tick(System::Object^ sender, System::EventArgs^ e) {
+        date->Text = System::Convert::ToString(DateTime::Now);
+    }
 };
 }
