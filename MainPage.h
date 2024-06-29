@@ -8,6 +8,7 @@ namespace Project {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+    using namespace System::IO;
 
 	/// <summary>
 	/// Summary for MainPage
@@ -1579,6 +1580,8 @@ private: System::Windows::Forms::TextBox^ preview;
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->preview->BackColor = System::Drawing::SystemColors::ControlLight;
+            this->preview->Font = (gcnew System::Drawing::Font(L"Courier New", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
             this->preview->Location = System::Drawing::Point(38, 330);
             this->preview->Multiline = true;
             this->preview->Name = L"preview";
@@ -1588,7 +1591,7 @@ private: System::Windows::Forms::TextBox^ preview;
             // 
             // BorrowButton
             // 
-            this->BorrowButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->BorrowButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->BorrowButton->BackColor = System::Drawing::Color::Maroon;
             this->BorrowButton->Cursor = System::Windows::Forms::Cursors::Hand;
             this->BorrowButton->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
@@ -1597,7 +1600,7 @@ private: System::Windows::Forms::TextBox^ preview;
             this->BorrowButton->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->BorrowButton->ForeColor = System::Drawing::Color::White;
-            this->BorrowButton->Location = System::Drawing::Point(536, 226);
+            this->BorrowButton->Location = System::Drawing::Point(207, 226);
             this->BorrowButton->Name = L"BorrowButton";
             this->BorrowButton->Size = System::Drawing::Size(99, 32);
             this->BorrowButton->TabIndex = 32;
@@ -1612,6 +1615,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->pandiliginput->Name = L"pandiliginput";
             this->pandiliginput->Size = System::Drawing::Size(225, 20);
             this->pandiliginput->TabIndex = 31;
+            this->pandiliginput->Text = L"0";
+            this->pandiliginput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::pandiliginput_MouseClick);
+            this->pandiliginput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::pandiliginput_KeyPress);
             // 
             // palainput
             // 
@@ -1621,6 +1627,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->palainput->Name = L"palainput";
             this->palainput->Size = System::Drawing::Size(279, 20);
             this->palainput->TabIndex = 30;
+            this->palainput->Text = L"0";
+            this->palainput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::palainput_MouseClick);
+            this->palainput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::palainput_KeyPress);
             // 
             // scissorinput
             // 
@@ -1630,6 +1639,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->scissorinput->Name = L"scissorinput";
             this->scissorinput->Size = System::Drawing::Size(175, 20);
             this->scissorinput->TabIndex = 29;
+            this->scissorinput->Text = L"0";
+            this->scissorinput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::scissorinput_MouseClick);
+            this->scissorinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::scissorinput_KeyPress);
             // 
             // mopinput
             // 
@@ -1639,6 +1651,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->mopinput->Name = L"mopinput";
             this->mopinput->Size = System::Drawing::Size(300, 20);
             this->mopinput->TabIndex = 28;
+            this->mopinput->Text = L"0";
+            this->mopinput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::mopinput_MouseClick);
+            this->mopinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::mopinput_KeyPress);
             // 
             // timbainput
             // 
@@ -1648,6 +1663,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->timbainput->Name = L"timbainput";
             this->timbainput->Size = System::Drawing::Size(276, 20);
             this->timbainput->TabIndex = 27;
+            this->timbainput->Text = L"0";
+            this->timbainput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::timbainput_MouseClick);
+            this->timbainput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::timbainput_KeyPress);
             // 
             // dustpaninput
             // 
@@ -1657,6 +1675,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->dustpaninput->Name = L"dustpaninput";
             this->dustpaninput->Size = System::Drawing::Size(261, 20);
             this->dustpaninput->TabIndex = 26;
+            this->dustpaninput->Text = L"0";
+            this->dustpaninput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::dustpaninput_MouseClick);
+            this->dustpaninput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::dustpaninput_KeyPress);
             // 
             // desiginput
             // 
@@ -1667,6 +1688,8 @@ private: System::Windows::Forms::TextBox^ preview;
             this->desiginput->Name = L"desiginput";
             this->desiginput->Size = System::Drawing::Size(222, 20);
             this->desiginput->TabIndex = 25;
+            this->desiginput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::desiginput_MouseClick);
+            this->desiginput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::desiginput_KeyPress);
             // 
             // programinput
             // 
@@ -1677,6 +1700,8 @@ private: System::Windows::Forms::TextBox^ preview;
             this->programinput->Name = L"programinput";
             this->programinput->Size = System::Drawing::Size(243, 20);
             this->programinput->TabIndex = 24;
+            this->programinput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::programinput_MouseClick);
+            this->programinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::programinput_KeyPress);
             // 
             // nameinput
             // 
@@ -1687,6 +1712,8 @@ private: System::Windows::Forms::TextBox^ preview;
             this->nameinput->Name = L"nameinput";
             this->nameinput->Size = System::Drawing::Size(271, 20);
             this->nameinput->TabIndex = 23;
+            this->nameinput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::nameinput_MouseClick);
+            this->nameinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::nameinput_KeyPress);
             // 
             // DesigR
             // 
@@ -1738,6 +1765,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->tamboinput->Name = L"tamboinput";
             this->tamboinput->Size = System::Drawing::Size(233, 20);
             this->tamboinput->TabIndex = 19;
+            this->tamboinput->Text = L"0";
+            this->tamboinput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::tamboinput_MouseClick);
+            this->tamboinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::tamboinput_KeyPress);
             // 
             // Tingtinginput
             // 
@@ -1747,6 +1777,9 @@ private: System::Windows::Forms::TextBox^ preview;
             this->Tingtinginput->Name = L"Tingtinginput";
             this->Tingtinginput->Size = System::Drawing::Size(223, 20);
             this->Tingtinginput->TabIndex = 18;
+            this->Tingtinginput->Text = L"0";
+            this->Tingtinginput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::Tingtinginput_MouseClick);
+            this->Tingtinginput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::Tingtinginput_KeyPress);
             // 
             // Pandiligr
             // 
@@ -1923,6 +1956,7 @@ private: System::Windows::Forms::TextBox^ preview;
             this->Logs->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
+            this->Logs->BackColor = System::Drawing::SystemColors::ControlLight;
             this->Logs->Font = (gcnew System::Drawing::Font(L"Courier New", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Logs->Location = System::Drawing::Point(21, 72);
@@ -1957,10 +1991,10 @@ private: System::Windows::Forms::TextBox^ preview;
             this->ClientSize = System::Drawing::Size(788, 488);
             this->Controls->Add(this->ButtonPanel);
             this->Controls->Add(this->TopBG);
-            this->Controls->Add(this->HomeTab);
-            this->Controls->Add(this->HistoryTab);
             this->Controls->Add(this->BorrowTab);
             this->Controls->Add(this->ReturnTab);
+            this->Controls->Add(this->HomeTab);
+            this->Controls->Add(this->HistoryTab);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->Name = L"MainPage";
             this->Text = L"MainPage";
@@ -1989,13 +2023,15 @@ private: System::Windows::Forms::TextBox^ preview;
 
         }
 #pragma endregion
+        String^ previewtext;
+        String^ logstext;
     private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
         Timer->Start();
+        HomeTab->BringToFront();
     }
 	private: System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		Close();
 	}
-
     private: System::Void HomeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	    HomePanel->BackColor = System::Drawing::Color::Maroon;
 	    BorrowingPanel->BackColor = System::Drawing::Color::Snow;
@@ -2027,5 +2063,170 @@ private: System::Windows::Forms::TextBox^ preview;
     private: System::Void Timer_Tick(System::Object^ sender, System::EventArgs^ e) {
         date->Text = System::Convert::ToString(DateTime::Now);
     }
+private: System::Void Tingtinginput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        tamboinput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void tamboinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        dustpaninput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void dustpaninput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        timbainput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void timbainput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        mopinput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void mopinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        scissorinput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void scissorinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        palainput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void palainput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        pandiliginput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void pandiliginput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        nameinput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void nameinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || ((e->KeyChar >= (int)Keys::A && e->KeyChar <= (int)Keys::Z) || (e->KeyChar >= 91 && e->KeyChar <= 122)) || e->KeyChar == (int)Keys::Enter || e->KeyChar == (int)Keys::Space || e->KeyChar == 45)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        programinput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void programinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || ((e->KeyChar >= (int)Keys::A && e->KeyChar <= (int)Keys::Z) || (e->KeyChar >=91 && e->KeyChar <=122)) || e->KeyChar == (int)Keys::Enter || e->KeyChar == (int)Keys::Space || e->KeyChar == 45)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        desiginput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void desiginput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (!(e->KeyChar == 8 || ((e->KeyChar >= (int)Keys::A && e->KeyChar <= (int)Keys::Z) || (e->KeyChar >= 91 && e->KeyChar <= 122)) || e->KeyChar == (int)Keys::Enter || e->KeyChar == (int)Keys::Space || e->KeyChar == 45)) {
+        e->Handled = true;
+    }
+    if (e->KeyChar == (int)Keys::Enter) {
+        Tingtinginput->Focus();
+        e->Handled = true;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
+}
+private: System::Void Tingtinginput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void tamboinput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void dustpaninput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void timbainput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void mopinput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void scissorinput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void palainput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void pandiliginput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void nameinput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void programinput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void desiginput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
 };
 }

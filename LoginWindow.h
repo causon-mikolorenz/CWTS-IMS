@@ -242,47 +242,50 @@ namespace Project {
 #pragma endregion
 		String^ admin = "admin";
 		String^ pass = "pass";
-private: System::Void LoginButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (UserEdit->Text == admin && PasswordEdit->Text == pass) { 
-		this->Hide();
-		MainPage mainp;
-		mainp.ShowDialog();
-		this->Close();
+	private: System::Void LoginButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (UserEdit->Text == admin && PasswordEdit->Text == pass) { 
+			this->Hide();
+			MainPage mainp;
+			mainp.ShowDialog();
+			this->Close();
+		}
+		else
+			Errorlabel->Visible = true;
 	}
-	else
-		Errorlabel->Visible = true;
-}
-private: System::Void ShowPassword_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (ShowPassword->Checked)
-		PasswordEdit->UseSystemPasswordChar = 0;
-	else
-		PasswordEdit->UseSystemPasswordChar = true;
-}
-private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
-}
-	   bool dragging;
-	   Point offset;
-private: System::Void LoginWindow_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	dragging = true;
-	offset.X = e->X;
-	offset.Y = e->Y;
-}
-private: System::Void LoginWindow_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	dragging = false;
-}
-private: System::Void LoginWindow_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	if (dragging) {
-		Point CurrentScreenPosition = PointToScreen(Point(e->X, e->Y));
-		Location = Point(CurrentScreenPosition.X - offset.X, CurrentScreenPosition.Y - offset.Y);
+	private: System::Void ShowPassword_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (ShowPassword->Checked)
+			PasswordEdit->UseSystemPasswordChar = 0;
+		else
+			PasswordEdit->UseSystemPasswordChar = true;
 	}
-}
-private: System::Void UserEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (e->KeyChar == (int)Keys::Enter)
-		PasswordEdit->Focus();
-}
-private: System::Void PasswordEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-}	(e->KeyChar == (int)Keys::Enter)
-	Loginbutton->Click();
+	private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
+		   bool dragging;
+		   Point offset;
+	private: System::Void LoginWindow_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		dragging = true;
+		offset.X = e->X;
+		offset.Y = e->Y;
+	}
+	private: System::Void LoginWindow_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		dragging = false;
+	}
+	private: System::Void LoginWindow_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (dragging) {
+			Point CurrentScreenPosition = PointToScreen(Point(e->X, e->Y));
+			Location = Point(CurrentScreenPosition.X - offset.X, CurrentScreenPosition.Y - offset.Y);
+		}
+	}
+	private: System::Void UserEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (e->KeyChar == (int)Keys::Enter)
+			PasswordEdit->Focus();
+		e->Handled;
+	}
+	private: System::Void PasswordEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (e->KeyChar == (int)Keys::Enter)
+			LoginButton->PerformClick();
+		e->Handled;
+	}
 };
 }
