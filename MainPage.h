@@ -34,10 +34,10 @@ namespace Project {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Panel^ TopBG;
 	protected:
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ ProjectLabel;
+	private: System::Windows::Forms::PictureBox^ Logo;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ DashboardBtn;
 	private: System::Windows::Forms::Button^ BRBtn;
