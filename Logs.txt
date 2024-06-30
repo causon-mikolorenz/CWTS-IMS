@@ -1,16 +1,16 @@
 4118467633426500
-30/06/2024 1:39:35 pm
+30/06/2024 9:56:42 pm
 Action: Borrow
-Name: Miiko
-Program: Bachelor of Science in Information Technology
-Designation: Gym
+Name: kanor
+Program: Bachelor of Science in Education Major in English
+Designation: zonta
 Borrowed Items:
-Walis Tingting: 0
-Walis Tambo: 10
-Dust Pan: 5
-Bucket: 0
-Mop: 0
+Walis Tingting: 1
+Walis Tambo: 1
+Dust Pan: 1
+Bucket: 1
+Mop: 1
 Gardening Scissor: {0}
-Shovel: 0
-Watering Can: 0
+Shovel: 1
+Watering Can: 1
  

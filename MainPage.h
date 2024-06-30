@@ -1,5 +1,6 @@
 #pragma once
 #include<random>
+#include<vector>
 namespace Project {
 
 	using namespace System;
@@ -2046,16 +2047,50 @@ private: System::Windows::Forms::ComboBox^ programinput;
     private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
         Timer->Start();
         HomeTab->BringToFront();
+        StreamReader^ cur = File::OpenText(currtxt);
+        array<String^>^ curr = {"0", "0", "0", "0", "0", "0", "0", "0"};
+        String^ str;
+        int ctr = 0;
+        while ((str = cur->ReadLine()) != nullptr) {
+            curr[ctr] = str;
+            ctr++;
+        }
+        cur->Close();
+        Tingtingleft->Text = curr[0];
+        Tamboleft->Text = curr[1];
+        DustPanleft->Text = curr[2];
+        Timbaleft->Text = curr[3];
+        Mopleft->Text = curr[4];
+        Scissorleft->Text = curr[5];
+        Palaleft->Text = curr[6];
+        Pandiligleft->Text = curr[7];
     }
 	private: System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		Close();
 	}
     private: System::Void HomeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	    HomePanel->BackColor = System::Drawing::Color::Maroon;
-	    BorrowingPanel->BackColor = System::Drawing::Color::Snow;
-	    ReturningPanel->BackColor = System::Drawing::Color::Snow;
-	    HistoryPanel->BackColor = System::Drawing::Color::Snow;
+        HomePanel->BackColor = System::Drawing::Color::Maroon;
+        BorrowingPanel->BackColor = System::Drawing::Color::Snow;
+        ReturningPanel->BackColor = System::Drawing::Color::Snow;
+        HistoryPanel->BackColor = System::Drawing::Color::Snow;
         HomeTab->BringToFront();
+        StreamReader^ cur = File::OpenText(currtxt);
+        array<String^>^ curr = { "0", "0", "0", "0", "0", "0", "0", "0" };
+        String^ str;
+        int ctr = 0;
+        while ((str = cur->ReadLine()) != nullptr) {
+            curr[ctr] = str;
+            ctr++;
+        }
+        cur->Close();
+        Tingtingleft->Text = curr[0];
+        Tamboleft->Text = curr[1];
+        DustPanleft->Text = curr[2];
+        Timbaleft->Text = curr[3];
+        Mopleft->Text = curr[4];
+        Scissorleft->Text = curr[5];
+        Palaleft->Text = curr[6];
+        Pandiligleft->Text = curr[7];
     }
     private: System::Void BorrowBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	    HomePanel->BackColor = System::Drawing::Color::Snow;
@@ -2288,41 +2323,76 @@ private: System::Void programinput_SelectedIndexChanged(System::Object^ sender, 
     preview->Text = previewtext;
 }
 private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-    String^ id = System::Convert::ToString(rand())+ System::Convert::ToString(rand())+ System::Convert::ToString(rand())+ System::Convert::ToString(rand());
-    MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: "+id, "CWTS Inventory Management System");
-    StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
-    logs->WriteLine("{0}", id);
-    logs->WriteLine(DateTime::Now);
-    logs->WriteLine("Action: Borrow");
-    logs->WriteLine("Name: {0}", nameinput->Text);
-    logs->WriteLine("Program: {0}", programinput->Text);
-    logs->WriteLine("Designation: {0}", desiginput->Text);
-    logs->WriteLine("Borrowed Items:");
-    logs->WriteLine("Walis Tingting: {0}", Tingtinginput->Text);
-    logs->WriteLine("Walis Tambo: {0}", tamboinput->Text);
-    logs->WriteLine("Dust Pan: {0}", dustpaninput->Text);
-    logs->WriteLine("Bucket: {0}", timbainput->Text);
-    logs->WriteLine("Mop: {0}", mopinput->Text);
-    logs->WriteLine("Gardening Scissor: {0}");
-    logs->WriteLine("Shovel: {0}", palainput->Text);
-    logs->WriteLine("Watering Can: {0}", pandiliginput->Text);
-    logs->WriteLine(" ");
-    logs->Close();
-    nameinput->Text = "";
-    programinput->Text = "--Select Program--";
-    desiginput->Text = "";
-    Tingtinginput->Text = "0";
-    tamboinput->Text = "0";
-    dustpaninput->Text = "0";
-    timbainput->Text = "0";
-    mopinput->Text = "0";
-    scissorinput->Text = "0";
-    palainput->Text = "0";
-    pandiliginput->Text = "0";
-    BorrowButton->Enabled = false;
-    BorrowButton->BackColor = System::Drawing::Color::Silver;
-    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
-    preview->Text = previewtext;
+    StreamReader^ cur = File::OpenText(currtxt);
+    std::vector<Int32> curr;
+    String^ str;
+    while ((str = cur->ReadLine()) != nullptr) {
+        curr.push_back(System::Convert::ToInt32(str));
+    }
+    Int32 tib = System::Convert::ToInt32(Tingtinginput->Text);
+    Int32 tab = System::Convert::ToInt32(tamboinput->Text);
+    Int32 dp = System::Convert::ToInt32(dustpaninput->Text);
+    Int32 tim = System::Convert::ToInt32(timbainput->Text);
+    Int32 mop = System::Convert::ToInt32(mopinput->Text);
+    Int32 scis = System::Convert::ToInt32(scissorinput->Text);
+    Int32 pala = System::Convert::ToInt32(palainput->Text);
+    Int32 pan = System::Convert::ToInt32(pandiliginput->Text);
+    cur->Close();
+
+    if ((curr[0] - tib < 0) || (curr[1] - tab < 0) || (curr[2] - dp < 0) || (curr[3] - dp < 0) || (curr[4] - tim < 0) || (curr[5] - mop < 0) || (curr[6] - pala < 0) || (curr[7] - pan < 0)) {
+        MessageBox::Show("Failed to borrow.\r\nSome items you have borrowed exceeded current value.\r\n(Check in dashboard to see items remaining then Try again.", "CWTS Inventory Management System");
+        BorrowButton->Enabled = false;
+        BorrowButton->BackColor = System::Drawing::Color::Silver;
+    }
+    else {
+        String^ id = System::Convert::ToString(rand()) + System::Convert::ToString(rand()) + System::Convert::ToString(rand()) + System::Convert::ToString(rand());
+        MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: " + id, "CWTS Inventory Management System");
+        StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
+        logs->WriteLine("{0}", id);
+        logs->WriteLine(DateTime::Now);
+        logs->WriteLine("Action: Borrow");
+        logs->WriteLine("Name: {0}", nameinput->Text);
+        logs->WriteLine("Program: {0}", programinput->Text);
+        logs->WriteLine("Designation: {0}", desiginput->Text);
+        logs->WriteLine("Borrowed Items:");
+        logs->WriteLine("Walis Tingting: {0}", Tingtinginput->Text);
+        logs->WriteLine("Walis Tambo: {0}", tamboinput->Text);
+        logs->WriteLine("Dust Pan: {0}", dustpaninput->Text);
+        logs->WriteLine("Bucket: {0}", timbainput->Text);
+        logs->WriteLine("Mop: {0}", mopinput->Text);
+        logs->WriteLine("Gardening Scissor: {0}");
+        logs->WriteLine("Shovel: {0}", palainput->Text);
+        logs->WriteLine("Watering Can: {0}", pandiliginput->Text);
+        logs->WriteLine(" ");
+        logs->Close();
+
+        StreamWriter^ current = gcnew StreamWriter(currtxt);
+        current->WriteLine(System::Convert::ToString(curr[0] - tib));
+        current->WriteLine(System::Convert::ToString(curr[1] - tab));
+        current->WriteLine(System::Convert::ToString(curr[2] - dp));
+        current->WriteLine(System::Convert::ToString(curr[3] - tim));
+        current->WriteLine(System::Convert::ToString(curr[4] - mop));
+        current->WriteLine(System::Convert::ToString(curr[5] - scis));
+        current->WriteLine(System::Convert::ToString(curr[6] - pala));
+        current->WriteLine(System::Convert::ToString(curr[6] - pan));
+        current->Close();
+
+        nameinput->Text = "";
+        programinput->Text = "--Select Program--";
+        desiginput->Text = "";
+        Tingtinginput->Text = "0";
+        tamboinput->Text = "0";
+        dustpaninput->Text = "0";
+        timbainput->Text = "0";
+        mopinput->Text = "0";
+        scissorinput->Text = "0";
+        palainput->Text = "0";
+        pandiliginput->Text = "0";
+        BorrowButton->Enabled = false;
+        BorrowButton->BackColor = System::Drawing::Color::Silver;
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+        preview->Text = previewtext;
+    }
 }
 };
 }
