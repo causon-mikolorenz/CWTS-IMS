@@ -1,0 +1,16 @@
+4118467633426500
+30/06/2024 1:39:35 pm
+Action: Borrow
+Name: Miiko
+Program: Bachelor of Science in Information Technology
+Designation: Gym
+Borrowed Items:
+Walis Tingting: 0
+Walis Tambo: 10
+Dust Pan: 5
+Bucket: 0
+Mop: 0
+Gardening Scissor: {0}
+Shovel: 0
+Watering Can: 0
+ 

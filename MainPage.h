@@ -1,5 +1,5 @@
 #pragma once
-
+#include<random>
 namespace Project {
 
 	using namespace System;
@@ -193,7 +193,7 @@ private: System::Windows::Forms::TextBox^ desiginput;
 
 
 
-private: System::Windows::Forms::TextBox^ programinput;
+
 
 private: System::Windows::Forms::TextBox^ nameinput;
 
@@ -233,6 +233,8 @@ private: System::Windows::Forms::Label^ DustPanr;
 private: System::Windows::Forms::Label^ Tambor;
 private: System::Windows::Forms::Label^ Tingtingr;
 private: System::Windows::Forms::TextBox^ preview;
+private: System::Windows::Forms::ComboBox^ programinput;
+
 
 
 
@@ -754,6 +756,7 @@ private: System::Windows::Forms::TextBox^ preview;
             this->label2 = (gcnew System::Windows::Forms::Label());
             this->BorrowLabel = (gcnew System::Windows::Forms::Label());
             this->BorrowTab = (gcnew System::Windows::Forms::Panel());
+            this->programinput = (gcnew System::Windows::Forms::ComboBox());
             this->preview = (gcnew System::Windows::Forms::TextBox());
             this->BorrowButton = (gcnew System::Windows::Forms::Button());
             this->pandiliginput = (gcnew System::Windows::Forms::TextBox());
@@ -763,7 +766,6 @@ private: System::Windows::Forms::TextBox^ preview;
             this->timbainput = (gcnew System::Windows::Forms::TextBox());
             this->dustpaninput = (gcnew System::Windows::Forms::TextBox());
             this->desiginput = (gcnew System::Windows::Forms::TextBox());
-            this->programinput = (gcnew System::Windows::Forms::TextBox());
             this->nameinput = (gcnew System::Windows::Forms::TextBox());
             this->DesigR = (gcnew System::Windows::Forms::Label());
             this->ProgramR = (gcnew System::Windows::Forms::Label());
@@ -932,7 +934,7 @@ private: System::Windows::Forms::TextBox^ preview;
             this->HomeBtn->Name = L"HomeBtn";
             this->HomeBtn->Size = System::Drawing::Size(187, 54);
             this->HomeBtn->TabIndex = 3;
-            this->HomeBtn->Text = L"Home";
+            this->HomeBtn->Text = L"Dashboard";
             this->HomeBtn->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
             this->HomeBtn->UseVisualStyleBackColor = false;
             this->HomeBtn->Click += gcnew System::EventHandler(this, &MainPage::HomeBtn_Click);
@@ -1541,6 +1543,7 @@ private: System::Windows::Forms::TextBox^ preview;
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->BorrowTab->AutoSize = true;
+            this->BorrowTab->Controls->Add(this->programinput);
             this->BorrowTab->Controls->Add(this->preview);
             this->BorrowTab->Controls->Add(this->BorrowButton);
             this->BorrowTab->Controls->Add(this->pandiliginput);
@@ -1550,7 +1553,6 @@ private: System::Windows::Forms::TextBox^ preview;
             this->BorrowTab->Controls->Add(this->timbainput);
             this->BorrowTab->Controls->Add(this->dustpaninput);
             this->BorrowTab->Controls->Add(this->desiginput);
-            this->BorrowTab->Controls->Add(this->programinput);
             this->BorrowTab->Controls->Add(this->nameinput);
             this->BorrowTab->Controls->Add(this->DesigR);
             this->BorrowTab->Controls->Add(this->ProgramR);
@@ -1574,6 +1576,29 @@ private: System::Windows::Forms::TextBox^ preview;
             this->BorrowTab->Size = System::Drawing::Size(816, 350);
             this->BorrowTab->TabIndex = 4;
             // 
+            // programinput
+            // 
+            this->programinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->programinput->FormattingEnabled = true;
+            this->programinput->Items->AddRange(gcnew cli::array< System::Object^  >(11) {
+                L"Bachelor of Science in Business Administration Major in Marketing Management",
+                    L"Bachelor of Science in Business Administration Major in Human Resource Management"
+                    L"", L"Bachelor of Science in Education Major in English",
+                    L"Bachelor of Science in Education Major in Mathematics", L"Bachelor of Science in Electronics Engineering", L"Bachelor of Science in Information Technology",
+                    L"Bachelor of Science in Mechanical Engineering", L"Bachelor of Science in Office Administration", L"Bachelor of Science in Psychology",
+                    L"Diploma in Information Technology", L"Diploma in Office Management Technology"
+            });
+            this->programinput->Location = System::Drawing::Point(496, 146);
+            this->programinput->Name = L"programinput";
+            this->programinput->Size = System::Drawing::Size(249, 21);
+            this->programinput->TabIndex = 34;
+            this->programinput->Text = L"--Select a Program--";
+            this->programinput->SelectedIndexChanged += gcnew System::EventHandler(this, &MainPage::programinput_SelectedIndexChanged);
+            this->programinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::programinput_KeyPress);
+            this->programinput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::programinput_MouseClick);
+            // 
             // preview
             // 
             this->preview->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -1592,8 +1617,9 @@ private: System::Windows::Forms::TextBox^ preview;
             // BorrowButton
             // 
             this->BorrowButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-            this->BorrowButton->BackColor = System::Drawing::Color::Maroon;
+            this->BorrowButton->BackColor = System::Drawing::Color::DarkGray;
             this->BorrowButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->BorrowButton->Enabled = false;
             this->BorrowButton->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
             this->BorrowButton->FlatAppearance->BorderSize = 2;
             this->BorrowButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1606,6 +1632,7 @@ private: System::Windows::Forms::TextBox^ preview;
             this->BorrowButton->TabIndex = 32;
             this->BorrowButton->Text = L"Borrow";
             this->BorrowButton->UseVisualStyleBackColor = false;
+            this->BorrowButton->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::BorrowButton_MouseClick);
             // 
             // pandiliginput
             // 
@@ -1690,18 +1717,6 @@ private: System::Windows::Forms::TextBox^ preview;
             this->desiginput->TabIndex = 25;
             this->desiginput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::desiginput_MouseClick);
             this->desiginput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::desiginput_KeyPress);
-            // 
-            // programinput
-            // 
-            this->programinput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-                | System::Windows::Forms::AnchorStyles::Left)
-                | System::Windows::Forms::AnchorStyles::Right));
-            this->programinput->Location = System::Drawing::Point(501, 145);
-            this->programinput->Name = L"programinput";
-            this->programinput->Size = System::Drawing::Size(243, 20);
-            this->programinput->TabIndex = 24;
-            this->programinput->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainPage::programinput_MouseClick);
-            this->programinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::programinput_KeyPress);
             // 
             // nameinput
             // 
@@ -1991,10 +2006,10 @@ private: System::Windows::Forms::TextBox^ preview;
             this->ClientSize = System::Drawing::Size(788, 488);
             this->Controls->Add(this->ButtonPanel);
             this->Controls->Add(this->TopBG);
-            this->Controls->Add(this->BorrowTab);
-            this->Controls->Add(this->ReturnTab);
             this->Controls->Add(this->HomeTab);
             this->Controls->Add(this->HistoryTab);
+            this->Controls->Add(this->BorrowTab);
+            this->Controls->Add(this->ReturnTab);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->Name = L"MainPage";
             this->Text = L"MainPage";
@@ -2023,6 +2038,9 @@ private: System::Windows::Forms::TextBox^ preview;
 
         }
 #pragma endregion
+        String^ logstxt = "Logs.txt";
+        String^ currtxt = "Current.txt";
+        String^ checktext;
         String^ previewtext;
         String^ logstext;
     private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -2160,17 +2178,30 @@ private: System::Void nameinput_KeyPress(System::Object^ sender, System::Windows
         e->Handled = true;
         previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
         preview->Text = previewtext;
+        if (desiginput->Text == "" && (programinput->Text == "--Select a Program--" || programinput->Text == "") && nameinput->Text == "") {
+            BorrowButton->Enabled = false;
+            BorrowButton->BackColor = System::Drawing::Color::Silver;
+        }
+        else {
+            BorrowButton->Enabled = true;
+            BorrowButton->BackColor = System::Drawing::Color::Maroon;
+        }
     }
 }
 private: System::Void programinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    if (!(e->KeyChar == 8 || ((e->KeyChar >= (int)Keys::A && e->KeyChar <= (int)Keys::Z) || (e->KeyChar >=91 && e->KeyChar <=122)) || e->KeyChar == (int)Keys::Enter || e->KeyChar == (int)Keys::Space || e->KeyChar == 45)) {
-        e->Handled = true;
-    }
     if (e->KeyChar == (int)Keys::Enter) {
         desiginput->Focus();
         e->Handled = true;
         previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
         preview->Text = previewtext;
+        if (desiginput->Text == "" && (programinput->Text == "--Select a Program--" || programinput->Text == "") && nameinput->Text == "") {
+            BorrowButton->Enabled = false;
+            BorrowButton->BackColor = System::Drawing::Color::Silver;
+        }
+        else {
+            BorrowButton->Enabled = true;
+            BorrowButton->BackColor = System::Drawing::Color::Maroon;
+        }
     }
 }
 private: System::Void desiginput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
@@ -2182,15 +2213,39 @@ private: System::Void desiginput_KeyPress(System::Object^ sender, System::Window
         e->Handled = true;
         previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
         preview->Text = previewtext;
+        if (desiginput->Text == "" && (programinput->Text == "--Select a Program--" || programinput->Text == "") && nameinput->Text == "") {
+            BorrowButton->Enabled = false;
+            BorrowButton->BackColor = System::Drawing::Color::Silver;
+        }
+        else {
+            BorrowButton->Enabled = true;
+            BorrowButton->BackColor = System::Drawing::Color::Maroon;
+        }
     }
 }
 private: System::Void Tingtinginput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
     previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
     preview->Text = previewtext;
+    if (desiginput->Text == "" && (programinput->Text == "--Select a Program--" || programinput->Text == "") && nameinput->Text == "") {
+        BorrowButton->Enabled = false;
+        BorrowButton->BackColor = System::Drawing::Color::Silver;
+    }
+    else {
+        BorrowButton->Enabled = true;
+        BorrowButton->BackColor = System::Drawing::Color::Maroon;
+    }
 }
 private: System::Void tamboinput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
     previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
     preview->Text = previewtext;
+    if (desiginput->Text == "" && (programinput->Text == "--Select a Program--" || programinput->Text == "") && nameinput->Text == "") {
+        BorrowButton->Enabled = false;
+        BorrowButton->BackColor = System::Drawing::Color::Silver;
+    }
+    else {
+        BorrowButton->Enabled = true;
+        BorrowButton->BackColor = System::Drawing::Color::Maroon;
+    }
 }
 private: System::Void dustpaninput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
     previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
@@ -2225,6 +2280,47 @@ private: System::Void programinput_MouseClick(System::Object^ sender, System::Wi
     preview->Text = previewtext;
 }
 private: System::Void desiginput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void programinput_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+}
+private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    String^ id = System::Convert::ToString(rand())+ System::Convert::ToString(rand())+ System::Convert::ToString(rand())+ System::Convert::ToString(rand());
+    MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: "+id, "CWTS Inventory Management System");
+    StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
+    logs->WriteLine("{0}", id);
+    logs->WriteLine(DateTime::Now);
+    logs->WriteLine("Action: Borrow");
+    logs->WriteLine("Name: {0}", nameinput->Text);
+    logs->WriteLine("Program: {0}", programinput->Text);
+    logs->WriteLine("Designation: {0}", desiginput->Text);
+    logs->WriteLine("Borrowed Items:");
+    logs->WriteLine("Walis Tingting: {0}", Tingtinginput->Text);
+    logs->WriteLine("Walis Tambo: {0}", tamboinput->Text);
+    logs->WriteLine("Dust Pan: {0}", dustpaninput->Text);
+    logs->WriteLine("Bucket: {0}", timbainput->Text);
+    logs->WriteLine("Mop: {0}", mopinput->Text);
+    logs->WriteLine("Gardening Scissor: {0}");
+    logs->WriteLine("Shovel: {0}", palainput->Text);
+    logs->WriteLine("Watering Can: {0}", pandiliginput->Text);
+    logs->WriteLine(" ");
+    logs->Close();
+    nameinput->Text = "";
+    programinput->Text = "--Select Program--";
+    desiginput->Text = "";
+    Tingtinginput->Text = "0";
+    tamboinput->Text = "0";
+    dustpaninput->Text = "0";
+    timbainput->Text = "0";
+    mopinput->Text = "0";
+    scissorinput->Text = "0";
+    palainput->Text = "0";
+    pandiliginput->Text = "0";
+    BorrowButton->Enabled = false;
+    BorrowButton->BackColor = System::Drawing::Color::Silver;
     previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
     preview->Text = previewtext;
 }
