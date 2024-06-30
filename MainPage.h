@@ -1973,7 +1973,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->Logs->BackColor = System::Drawing::SystemColors::ControlLight;
-            this->Logs->Font = (gcnew System::Drawing::Font(L"Courier New", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->Logs->Font = (gcnew System::Drawing::Font(L"Courier New", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Logs->Location = System::Drawing::Point(21, 72);
             this->Logs->Multiline = true;
@@ -2007,10 +2007,10 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->ClientSize = System::Drawing::Size(788, 488);
             this->Controls->Add(this->ButtonPanel);
             this->Controls->Add(this->TopBG);
-            this->Controls->Add(this->HomeTab);
             this->Controls->Add(this->HistoryTab);
             this->Controls->Add(this->BorrowTab);
             this->Controls->Add(this->ReturnTab);
+            this->Controls->Add(this->HomeTab);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->Name = L"MainPage";
             this->Text = L"MainPage";
@@ -2112,6 +2112,12 @@ private: System::Windows::Forms::ComboBox^ programinput;
 	    ReturningPanel->BackColor = System::Drawing::Color::Snow;
 	    HistoryPanel->BackColor = System::Drawing::Color::Maroon;
         HistoryTab->BringToFront();
+        StreamReader^ history = File::OpenText(logstxt);
+        String^ line;
+        while ((line = history->ReadLine()) != nullptr) {
+            Logs->AppendText(line);
+            Logs->AppendText(Environment::NewLine);
+        }
     }
     private: System::Void Timer_Tick(System::Object^ sender, System::EventArgs^ e) {
         date->Text = System::Convert::ToString(DateTime::Now);
@@ -2340,7 +2346,7 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
     cur->Close();
 
     if ((curr[0] - tib < 0) || (curr[1] - tab < 0) || (curr[2] - dp < 0) || (curr[3] - dp < 0) || (curr[4] - tim < 0) || (curr[5] - mop < 0) || (curr[6] - pala < 0) || (curr[7] - pan < 0)) {
-        MessageBox::Show("Failed to borrow.\r\nSome items you have borrowed exceeded current value.\r\n(Check in dashboard to see items remaining then Try again.", "CWTS Inventory Management System");
+        MessageBox::Show("Failed to borrow.\r\nSome items you have borrowed exceeded current value.\r\n(Check in dashboard to see items remaining then Try again.)", "CWTS Inventory Management System");
         BorrowButton->Enabled = false;
         BorrowButton->BackColor = System::Drawing::Color::Silver;
     }
