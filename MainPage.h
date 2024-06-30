@@ -10,6 +10,7 @@ namespace Project {
 	using namespace System::Data;
 	using namespace System::Drawing;
     using namespace System::IO;
+    using namespace System::Text::RegularExpressions;
 
 	/// <summary>
 	/// Summary for MainPage
@@ -205,7 +206,8 @@ private: System::Windows::Forms::Button^ BorrowButton;
 private: System::Windows::Forms::TextBox^ idinput;
 
 private: System::Windows::Forms::Label^ label2;
-private: System::Windows::Forms::TextBox^ textBox13;
+private: System::Windows::Forms::TextBox^ returnpreview;
+
 private: System::Windows::Forms::Button^ ReturnButton;
 private: System::Windows::Forms::TextBox^ pandiliginput;
 
@@ -235,6 +237,7 @@ private: System::Windows::Forms::Label^ Tambor;
 private: System::Windows::Forms::Label^ Tingtingr;
 private: System::Windows::Forms::TextBox^ preview;
 private: System::Windows::Forms::ComboBox^ programinput;
+
 
 
 
@@ -752,7 +755,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->HomeLabell = (gcnew System::Windows::Forms::Label());
             this->ReturnTab = (gcnew System::Windows::Forms::Panel());
             this->ReturnButton = (gcnew System::Windows::Forms::Button());
-            this->textBox13 = (gcnew System::Windows::Forms::TextBox());
+            this->returnpreview = (gcnew System::Windows::Forms::TextBox());
             this->idinput = (gcnew System::Windows::Forms::TextBox());
             this->label2 = (gcnew System::Windows::Forms::Label());
             this->BorrowLabel = (gcnew System::Windows::Forms::Label());
@@ -1462,7 +1465,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->ReturnTab->Controls->Add(this->ReturnButton);
-            this->ReturnTab->Controls->Add(this->textBox13);
+            this->ReturnTab->Controls->Add(this->returnpreview);
             this->ReturnTab->Controls->Add(this->idinput);
             this->ReturnTab->Controls->Add(this->label2);
             this->ReturnTab->Controls->Add(this->BorrowLabel);
@@ -1488,19 +1491,22 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->ReturnButton->TabIndex = 27;
             this->ReturnButton->Text = L"Return All";
             this->ReturnButton->UseVisualStyleBackColor = false;
+            this->ReturnButton->Click += gcnew System::EventHandler(this, &MainPage::ReturnButton_Click);
             // 
-            // textBox13
+            // returnpreview
             // 
-            this->textBox13->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+            this->returnpreview->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->textBox13->BackColor = System::Drawing::SystemColors::ScrollBar;
-            this->textBox13->Location = System::Drawing::Point(29, 82);
-            this->textBox13->Multiline = true;
-            this->textBox13->Name = L"textBox13";
-            this->textBox13->ReadOnly = true;
-            this->textBox13->Size = System::Drawing::Size(715, 208);
-            this->textBox13->TabIndex = 26;
+            this->returnpreview->BackColor = System::Drawing::SystemColors::ScrollBar;
+            this->returnpreview->Font = (gcnew System::Drawing::Font(L"Courier New", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->returnpreview->Location = System::Drawing::Point(29, 82);
+            this->returnpreview->Multiline = true;
+            this->returnpreview->Name = L"returnpreview";
+            this->returnpreview->ReadOnly = true;
+            this->returnpreview->Size = System::Drawing::Size(715, 208);
+            this->returnpreview->TabIndex = 26;
             // 
             // idinput
             // 
@@ -1511,6 +1517,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->idinput->Name = L"idinput";
             this->idinput->Size = System::Drawing::Size(271, 20);
             this->idinput->TabIndex = 25;
+            this->idinput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainPage::idinput_KeyPress);
             // 
             // label2
             // 
@@ -2007,10 +2014,10 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->ClientSize = System::Drawing::Size(788, 488);
             this->Controls->Add(this->ButtonPanel);
             this->Controls->Add(this->TopBG);
+            this->Controls->Add(this->HomeTab);
             this->Controls->Add(this->HistoryTab);
             this->Controls->Add(this->BorrowTab);
             this->Controls->Add(this->ReturnTab);
-            this->Controls->Add(this->HomeTab);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->Name = L"MainPage";
             this->Text = L"MainPage";
@@ -2041,9 +2048,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
 #pragma endregion
         String^ logstxt = "Logs.txt";
         String^ currtxt = "Current.txt";
-        String^ checktext;
         String^ previewtext;
-        String^ logstext;
     private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
         Timer->Start();
         HomeTab->BringToFront();
@@ -2118,6 +2123,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
             Logs->AppendText(line);
             Logs->AppendText(Environment::NewLine);
         }
+        history->Close();
     }
     private: System::Void Timer_Tick(System::Object^ sender, System::EventArgs^ e) {
         date->Text = System::Convert::ToString(DateTime::Now);
@@ -2366,7 +2372,7 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
         logs->WriteLine("Dust Pan: {0}", dustpaninput->Text);
         logs->WriteLine("Bucket: {0}", timbainput->Text);
         logs->WriteLine("Mop: {0}", mopinput->Text);
-        logs->WriteLine("Gardening Scissor: {0}");
+        logs->WriteLine("Gardening Scissor: {0}", scissorinput->Text);
         logs->WriteLine("Shovel: {0}", palainput->Text);
         logs->WriteLine("Watering Can: {0}", pandiliginput->Text);
         logs->WriteLine(" ");
@@ -2398,6 +2404,100 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
         BorrowButton->BackColor = System::Drawing::Color::Silver;
         previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
         preview->Text = previewtext;
+    }
+}
+private: System::Void idinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        std::vector<Int32> nums;
+        String^ id;
+        StreamReader^ logs = File::OpenText(logstxt);
+        int ctr = 0;
+        bool idFound = false;
+
+        while ((id = logs->ReadLine()) != nullptr) {
+            if (idinput->Text == id) {
+                idFound = true;
+                for (int i = 0; i < 15; i++) {
+                    String^ line = logs->ReadLine();
+                    if (line == nullptr) 
+                        break;
+                    returnpreview->AppendText(line);
+                    returnpreview->AppendText(Environment::NewLine);
+                }
+                break;
+            }
+        }
+        if (!idFound) {
+            returnpreview->Text = "Invalid ID";
+        }
+        logs->Close();
+    }
+}
+private: System::Void ReturnButton_Click(System::Object^ sender, System::EventArgs^ e) {
+    std::vector<Int32> nums;
+    String^ id = idinput->Text;
+    StreamReader^ logs = File::OpenText(logstxt);
+    int ctr = 0;
+    bool idFound = false;
+
+    while (logs->Peek() >= 0) {
+        String^ line = logs->ReadLine();
+        if (line == id) {
+            idFound = true;
+            for (int i = 0; i < 6; i++) {
+                logs->ReadLine();
+            }
+            for (int i = 0; i < 9; i++) {
+                line = logs->ReadLine();
+                if (line != nullptr) {
+                    Regex^ regex = gcnew Regex("\\d+");
+                    Match^ match = regex->Match(line);
+                    if (match->Success) {
+                        nums.push_back(System::Convert::ToInt32(match->Value));
+                    }
+                }
+            }
+            break;
+        }
+    }
+    logs->Close();
+    int allitems = 0;
+    for (int x = 0; x < nums.size(); x++) {
+        allitems += nums[x];
+    }
+    if (MessageBox::Show("Return all " + allitems + " items?", "CWTS Inventory Management System", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+        StreamReader^ cur = File::OpenText(currtxt);
+        std::vector<Int32> curr;
+        String^ str;
+
+        while ((str = cur->ReadLine()) != nullptr) {
+            curr.push_back(System::Convert::ToInt32(str));
+        }
+        cur->Close();
+
+        StreamWriter^ current = gcnew StreamWriter(currtxt);
+        for (int i = 0; i < nums.size(); i++) {
+            current->WriteLine(System::Convert::ToString(curr[i] + nums[i]));
+        }
+        current->Close();
+
+        StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
+        logs->WriteLine("{0}", id);
+        logs->WriteLine(DateTime::Now);
+        logs->WriteLine("Action: Return");
+        logs->WriteLine("Borrowed Items:");
+        logs->WriteLine("Walis Tingting: {0}", nums[0]);
+        logs->WriteLine("Walis Tambo: {0}", nums[1]);
+        logs->WriteLine("Dust Pan: {0}", nums[2]);
+        logs->WriteLine("Bucket: {0}", nums[3]);
+        logs->WriteLine("Mop: {0}", nums[4]);
+        logs->WriteLine("Gardening Scissor: {0}", nums[5]);
+        logs->WriteLine("Shovel: {0}", nums[6]);
+        logs->WriteLine("Watering Can: {0}", nums[7]);
+        logs->WriteLine(" ");
+        logs->Close();
+        MessageBox::Show(allitems + " items have been returned successfully!", "CWTS Inventory Management System");
     }
 }
 };

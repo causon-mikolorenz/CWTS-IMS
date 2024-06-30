@@ -10,7 +10,20 @@ Walis Tambo: 1
 Dust Pan: 1
 Bucket: 1
 Mop: 1
-Gardening Scissor: {0}
+Gardening Scissor: 1
+Shovel: 1
+Watering Can: 1
+ 
+4118467633426500
+30/06/2024 11:58:51 pm
+Action: Return
+Borrowed Items:
+Walis Tingting: 1
+Walis Tambo: 1
+Dust Pan: 1
+Bucket: 1
+Mop: 1
+Gardening Scissor: 1
 Shovel: 1
 Watering Can: 1
  
