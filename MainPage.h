@@ -237,6 +237,7 @@ private: System::Windows::Forms::Label^ Tambor;
 private: System::Windows::Forms::Label^ Tingtingr;
 private: System::Windows::Forms::TextBox^ preview;
 private: System::Windows::Forms::ComboBox^ programinput;
+private: System::Windows::Forms::Label^ enterlabel;
 
 
 
@@ -754,6 +755,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->DustPanMax = (gcnew System::Windows::Forms::Label());
             this->HomeLabell = (gcnew System::Windows::Forms::Label());
             this->ReturnTab = (gcnew System::Windows::Forms::Panel());
+            this->enterlabel = (gcnew System::Windows::Forms::Label());
             this->ReturnButton = (gcnew System::Windows::Forms::Button());
             this->returnpreview = (gcnew System::Windows::Forms::TextBox());
             this->idinput = (gcnew System::Windows::Forms::TextBox());
@@ -1464,6 +1466,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->ReturnTab->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
                 | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
+            this->ReturnTab->Controls->Add(this->enterlabel);
             this->ReturnTab->Controls->Add(this->ReturnButton);
             this->ReturnTab->Controls->Add(this->returnpreview);
             this->ReturnTab->Controls->Add(this->idinput);
@@ -1474,11 +1477,24 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->ReturnTab->Size = System::Drawing::Size(788, 350);
             this->ReturnTab->TabIndex = 3;
             // 
+            // enterlabel
+            // 
+            this->enterlabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->enterlabel->AutoSize = true;
+            this->enterlabel->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->enterlabel->Location = System::Drawing::Point(472, 51);
+            this->enterlabel->Name = L"enterlabel";
+            this->enterlabel->Size = System::Drawing::Size(255, 22);
+            this->enterlabel->TabIndex = 28;
+            this->enterlabel->Text = L"Press (ENTER) to check ID";
+            // 
             // ReturnButton
             // 
             this->ReturnButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-            this->ReturnButton->BackColor = System::Drawing::Color::Maroon;
+            this->ReturnButton->BackColor = System::Drawing::Color::Silver;
             this->ReturnButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->ReturnButton->Enabled = false;
             this->ReturnButton->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
             this->ReturnButton->FlatAppearance->BorderSize = 2;
             this->ReturnButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2014,10 +2030,10 @@ private: System::Windows::Forms::ComboBox^ programinput;
             this->ClientSize = System::Drawing::Size(788, 488);
             this->Controls->Add(this->ButtonPanel);
             this->Controls->Add(this->TopBG);
+            this->Controls->Add(this->ReturnTab);
             this->Controls->Add(this->HomeTab);
             this->Controls->Add(this->HistoryTab);
             this->Controls->Add(this->BorrowTab);
-            this->Controls->Add(this->ReturnTab);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->Name = L"MainPage";
             this->Text = L"MainPage";
@@ -2046,6 +2062,7 @@ private: System::Windows::Forms::ComboBox^ programinput;
 
         }
 #pragma endregion
+        String^ returntxt = "Returned.txt";
         String^ logstxt = "Logs.txt";
         String^ currtxt = "Current.txt";
         String^ previewtext;
@@ -2409,29 +2426,44 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
 private: System::Void idinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
     if (e->KeyChar == (int)Keys::Enter) {
         e->Handled = true;
-        std::vector<Int32> nums;
         String^ id;
-        StreamReader^ logs = File::OpenText(logstxt);
-        int ctr = 0;
-        bool idFound = false;
+        bool idFound = false, idhad = false;
 
-        while ((id = logs->ReadLine()) != nullptr) {
+        StreamReader^ retr = File::OpenText(returntxt);
+        while ((id = retr->ReadLine()) != nullptr) {
             if (idinput->Text == id) {
-                idFound = true;
-                for (int i = 0; i < 15; i++) {
-                    String^ line = logs->ReadLine();
-                    if (line == nullptr) 
-                        break;
-                    returnpreview->AppendText(line);
-                    returnpreview->AppendText(Environment::NewLine);
-                }
+                returnpreview->Text = "Items has been already returned!";
+                idhad = true;
+                ReturnButton->BackColor = System::Drawing::Color::Silver;
+                ReturnButton->Enabled = false;
                 break;
             }
         }
-        if (!idFound) {
-            returnpreview->Text = "Invalid ID";
+        retr->Close();
+
+        if (!idhad) {
+            StreamReader^ logs = File::OpenText(logstxt);
+            int ctr = 0;
+            while ((id = logs->ReadLine()) != nullptr) {
+                if (idinput->Text == id) {
+                    idFound = true;
+                    for (int i = 0; i < 15; i++) {
+                        String^ line = logs->ReadLine();
+                        if (line == nullptr)
+                            break;
+                        returnpreview->AppendText(line);
+                        returnpreview->AppendText(Environment::NewLine);
+                    }
+                    ReturnButton->BackColor = System::Drawing::Color::Maroon;
+                    ReturnButton->Enabled = true;
+                    break;
+                }
+            }
+            if (!idFound) {
+                returnpreview->Text = "Invalid ID";
+            }
+            logs->Close();
         }
-        logs->Close();
     }
 }
 private: System::Void ReturnButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2497,7 +2529,15 @@ private: System::Void ReturnButton_Click(System::Object^ sender, System::EventAr
         logs->WriteLine("Watering Can: {0}", nums[7]);
         logs->WriteLine(" ");
         logs->Close();
+
+        StreamWriter^ ret = gcnew StreamWriter(returntxt, true);
+        ret->WriteLine("{0}", id);
+        ret->Close();
+
         MessageBox::Show(allitems + " items have been returned successfully!", "CWTS Inventory Management System");
+
+        ReturnButton->BackColor = System::Drawing::Color::Silver;
+        ReturnButton->Enabled = false;
     }
 }
 };

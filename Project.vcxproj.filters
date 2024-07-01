@@ -39,5 +39,8 @@
     <Text Include="Current.txt">
       <Filter>Header Files</Filter>
     </Text>
+    <Text Include="Returned.txt">
+      <Filter>Header Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
