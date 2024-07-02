@@ -868,6 +868,7 @@ private: System::Windows::Forms::Label^ enterlabel;
             this->HistoryBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->HistoryBtn->ForeColor = System::Drawing::Color::Maroon;
+            this->HistoryBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"HistoryBtn.Image")));
             this->HistoryBtn->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
             this->HistoryBtn->Location = System::Drawing::Point(0, 0);
             this->HistoryBtn->Margin = System::Windows::Forms::Padding(0);
@@ -890,6 +891,7 @@ private: System::Windows::Forms::Label^ enterlabel;
             this->ReturnBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->ReturnBtn->ForeColor = System::Drawing::Color::Maroon;
+            this->ReturnBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"ReturnBtn.Image")));
             this->ReturnBtn->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
             this->ReturnBtn->Location = System::Drawing::Point(0, 0);
             this->ReturnBtn->Margin = System::Windows::Forms::Padding(0);
@@ -912,6 +914,7 @@ private: System::Windows::Forms::Label^ enterlabel;
             this->BorrowBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->BorrowBtn->ForeColor = System::Drawing::Color::Maroon;
+            this->BorrowBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"BorrowBtn.Image")));
             this->BorrowBtn->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
             this->BorrowBtn->Location = System::Drawing::Point(0, 0);
             this->BorrowBtn->Margin = System::Windows::Forms::Padding(0);
@@ -934,6 +937,7 @@ private: System::Windows::Forms::Label^ enterlabel;
             this->HomeBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->HomeBtn->ForeColor = System::Drawing::Color::Maroon;
+            this->HomeBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"HomeBtn.Image")));
             this->HomeBtn->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
             this->HomeBtn->Location = System::Drawing::Point(0, 0);
             this->HomeBtn->Margin = System::Windows::Forms::Padding(0);
