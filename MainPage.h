@@ -1639,6 +1639,7 @@ private: System::Windows::Forms::Label^ enterlabel;
             this->preview->Multiline = true;
             this->preview->Name = L"preview";
             this->preview->ReadOnly = true;
+            this->preview->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
             this->preview->Size = System::Drawing::Size(707, 10);
             this->preview->TabIndex = 33;
             // 
@@ -2034,10 +2035,10 @@ private: System::Windows::Forms::Label^ enterlabel;
             this->ClientSize = System::Drawing::Size(788, 488);
             this->Controls->Add(this->ButtonPanel);
             this->Controls->Add(this->TopBG);
-            this->Controls->Add(this->ReturnTab);
             this->Controls->Add(this->HomeTab);
             this->Controls->Add(this->HistoryTab);
             this->Controls->Add(this->BorrowTab);
+            this->Controls->Add(this->ReturnTab);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->Name = L"MainPage";
             this->Text = L"MainPage";
@@ -2358,6 +2359,7 @@ private: System::Void programinput_SelectedIndexChanged(System::Object^ sender, 
 private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
     StreamReader^ cur = File::OpenText(currtxt);
     std::vector<Int32> curr;
+    int sum = 0;
     String^ str;
     while ((str = cur->ReadLine()) != nullptr) {
         curr.push_back(System::Convert::ToInt32(str));
@@ -2372,6 +2374,14 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
     Int32 pan = System::Convert::ToInt32(pandiliginput->Text);
     cur->Close();
 
+    for (int x : curr) {
+        sum += x;
+    }
+    if (sum == 0) {
+        MessageBox::Show("Failed to borrow.\r\nYou cannot borrow nothing!", "CWTS Inventory Management System");
+        BorrowButton->Enabled = false;
+        BorrowButton->BackColor = System::Drawing::Color::Silver;
+    }
     if ((curr[0] - tib < 0) || (curr[1] - tab < 0) || (curr[2] - dp < 0) || (curr[3] - dp < 0) || (curr[4] - tim < 0) || (curr[5] - mop < 0) || (curr[6] - pala < 0) || (curr[7] - pan < 0)) {
         MessageBox::Show("Failed to borrow.\r\nSome items you have borrowed exceeded current value.\r\n(Check in dashboard to see items remaining then Try again.)", "CWTS Inventory Management System");
         BorrowButton->Enabled = false;
@@ -2379,7 +2389,28 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
     }
     else {
         String^ id = System::Convert::ToString(rand()) + System::Convert::ToString(rand()) + System::Convert::ToString(rand()) + System::Convert::ToString(rand());
+        StreamReader^ num = File::OpenText("Num.txt");
+        String^ number;
+        int nam = 0;
+        while ((number = num->ReadLine()) != nullptr) {
+            nam = System::Convert::ToInt32(num->ReadLine());
+        }
+        num->Close();
+        Int64 idnum = System::Convert::ToInt64(id) + nam;
+        id = System::Convert::ToString(idnum);
         MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: " + id, "CWTS Inventory Management System");
+        if (Tingtinginput->Text == "")
+            Tingtinginput->Text = "0";
+        if (tamboinput->Text == "")
+            tamboinput->Text = "0";
+        if (dustpaninput->Text == "")
+            dustpaninput->Text = "0";
+        if (timbainput->Text == "")
+            timbainput->Text = "0";
+        if (mopinput->Text == "")
+            mopinput->Text = "0";
+        if (scissorinput->Text == "")
+            scissorinput->Text = "0";
         StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
         logs->WriteLine("{0}", id);
         logs->WriteLine(DateTime::Now);
@@ -2399,15 +2430,19 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
         logs->WriteLine(" ");
         logs->Close();
 
+        StreamWriter^ numup = gcnew StreamWriter("Num.txt");
+        numup->WriteLine("{0}", System::Convert::ToString(nam + 1));
+        numup->Close();
+
         StreamWriter^ current = gcnew StreamWriter(currtxt);
-        current->WriteLine(System::Convert::ToString(curr[0] - tib));
-        current->WriteLine(System::Convert::ToString(curr[1] - tab));
-        current->WriteLine(System::Convert::ToString(curr[2] - dp));
-        current->WriteLine(System::Convert::ToString(curr[3] - tim));
-        current->WriteLine(System::Convert::ToString(curr[4] - mop));
-        current->WriteLine(System::Convert::ToString(curr[5] - scis));
-        current->WriteLine(System::Convert::ToString(curr[6] - pala));
-        current->WriteLine(System::Convert::ToString(curr[6] - pan));
+        current->WriteLine(System::Convert::ToString(curr[0] - System::Convert::ToInt32(tib)));
+        current->WriteLine(System::Convert::ToString(curr[1] - System::Convert::ToInt32(tab)));
+        current->WriteLine(System::Convert::ToString(curr[2] - System::Convert::ToInt32(dp)));
+        current->WriteLine(System::Convert::ToString(curr[3] - System::Convert::ToInt32(tim)));
+        current->WriteLine(System::Convert::ToString(curr[4] - System::Convert::ToInt32(mop)));
+        current->WriteLine(System::Convert::ToString(curr[5] - System::Convert::ToInt32(scis)));
+        current->WriteLine(System::Convert::ToString(curr[6] - System::Convert::ToInt32(pala)));
+        current->WriteLine(System::Convert::ToString(curr[7] - System::Convert::ToInt32(pan)));
         current->Close();
 
         nameinput->Text = "";
@@ -2472,9 +2507,10 @@ private: System::Void idinput_KeyPress(System::Object^ sender, System::Windows::
 }
 private: System::Void ReturnButton_Click(System::Object^ sender, System::EventArgs^ e) {
     std::vector<Int32> nums;
+    array<String^>^ currnt = { "0", "0", "0", "0", "0", "0" };
     String^ id = idinput->Text;
     StreamReader^ logs = File::OpenText(logstxt);
-    int ctr = 0;
+    int ctr = 0, count = 0;
     bool idFound = false;
 
     while (logs->Peek() >= 0) {
@@ -2483,6 +2519,7 @@ private: System::Void ReturnButton_Click(System::Object^ sender, System::EventAr
             idFound = true;
             for (int i = 0; i < 6; i++) {
                 logs->ReadLine();
+                currnt[i] = logs->ReadLine();
             }
             for (int i = 0; i < 9; i++) {
                 line = logs->ReadLine();
@@ -2491,10 +2528,16 @@ private: System::Void ReturnButton_Click(System::Object^ sender, System::EventAr
                     Match^ match = regex->Match(line);
                     if (match->Success) {
                         nums.push_back(System::Convert::ToInt32(match->Value));
+                        count++;
                     }
                 }
             }
             break;
+        }
+    }
+    if (nums.size() < 8) {
+        for (int i = count; i < 8; i++) {
+            nums.push_back(0);
         }
     }
     logs->Close();
@@ -2519,8 +2562,8 @@ private: System::Void ReturnButton_Click(System::Object^ sender, System::EventAr
         current->Close();
 
         StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
-        logs->WriteLine("{0}", id);
         logs->WriteLine(DateTime::Now);
+        logs->WriteLine("{0}", currnt[0]);
         logs->WriteLine("Action: Return");
         logs->WriteLine("Borrowed Items:");
         logs->WriteLine("Walis Tingting: {0}", nums[0]);
