@@ -1,0 +1,93 @@
+4118467633426500
+06/07/2024 5:18:41 pm
+Action: Borrow
+Name: Test Subject
+Program: Bachelor of Science in Business Administration Major in Human Resource Management
+Designation: Antartica
+Borrowed Items:
+Walis Tingting: 1
+Walis Tambo: 2
+Dust Pan: 3
+Bucket: 4
+Mop: 5
+Gardening Scissor: 4
+Shovel: 3
+Watering Can: 3
+ 
+06/07/2024 5:50:53 pm
+
+
+
+Action: Return
+Borrowed Items:
+Walis Tingting: 1
+Walis Tambo: 2
+Dust Pan: 3
+Bucket: 4
+Mop: 5
+Gardening Scissor: 4
+Shovel: 3
+Watering Can: 3
+ 
+4718485635926719
+06/07/2024 6:06:28 pm
+Action: Borrow
+Name: Gar
+Program: Bachelor of Science in Business Administration Major in Marketing Management
+Designation: Ohio
+Borrowed Items:
+Walis Tingting: 3
+Walis Tambo: 4
+Dust Pan: 3
+Bucket: 1
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+19175157421148529421
+06/07/2024 6:07:09 pm
+Action: Borrow
+Name: Shitslinger
+Program: Bachelor of Science in Education Major in English
+Designation: Point Nemo
+Borrowed Items:
+Walis Tingting: 10
+Walis Tambo: 5
+Dust Pan: 7
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+06/07/2024 6:07:43 pm
+
+
+
+Action: Return
+Borrowed Items:
+Walis Tingting: 3
+Walis Tambo: 4
+Dust Pan: 3
+Bucket: 1
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+06/07/2024 6:08:21 pm
+
+
+
+Action: Return
+Borrowed Items:
+Walis Tingting: 10
+Walis Tambo: 5
+Dust Pan: 7
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 

@@ -146,7 +146,6 @@
   <ItemGroup>
     <Text Include="Current.txt" />
     <Text Include="Logs.txt" />
-    <Text Include="Num.txt" />
     <Text Include="Returned.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

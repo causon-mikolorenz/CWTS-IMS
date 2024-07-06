@@ -2071,6 +2071,8 @@ private: System::Windows::Forms::Label^ enterlabel;
         String^ logstxt = "Logs.txt";
         String^ currtxt = "Current.txt";
         String^ previewtext;
+        array<Int32>^ nums = gcnew array<Int32>(8);
+        array<String^>^ currnt = gcnew array<String^>(3);
     private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
         Timer->Start();
         HomeTab->BringToFront();
@@ -2357,110 +2359,98 @@ private: System::Void programinput_SelectedIndexChanged(System::Object^ sender, 
     preview->Text = previewtext;
 }
 private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-    StreamReader^ cur = File::OpenText(currtxt);
-    std::vector<Int32> curr;
-    int sum = 0;
-    String^ str;
-    while ((str = cur->ReadLine()) != nullptr) {
-        curr.push_back(System::Convert::ToInt32(str));
-    }
-    Int32 tib = System::Convert::ToInt32(Tingtinginput->Text);
-    Int32 tab = System::Convert::ToInt32(tamboinput->Text);
-    Int32 dp = System::Convert::ToInt32(dustpaninput->Text);
-    Int32 tim = System::Convert::ToInt32(timbainput->Text);
-    Int32 mop = System::Convert::ToInt32(mopinput->Text);
-    Int32 scis = System::Convert::ToInt32(scissorinput->Text);
-    Int32 pala = System::Convert::ToInt32(palainput->Text);
-    Int32 pan = System::Convert::ToInt32(pandiliginput->Text);
-    cur->Close();
+  StreamReader^ cur = File::OpenText(currtxt);
+  std::vector<Int32> curr;
+  int sum = 0;
+  String^ str;
+  while ((str = cur->ReadLine()) != nullptr) {
+    curr.push_back(System::Convert::ToInt32(str));
+  }
+  Int32 tib = System::Convert::ToInt32(Tingtinginput->Text);
+  Int32 tab = System::Convert::ToInt32(tamboinput->Text);
+  Int32 dp = System::Convert::ToInt32(dustpaninput->Text);
+  Int32 tim = System::Convert::ToInt32(timbainput->Text);
+  Int32 mop = System::Convert::ToInt32(mopinput->Text);
+  Int32 scis = System::Convert::ToInt32(scissorinput->Text);
+  Int32 pala = System::Convert::ToInt32(palainput->Text);
+  Int32 pan = System::Convert::ToInt32(pandiliginput->Text);
+  cur->Close();
 
-    for (int x : curr) {
-        sum += x;
-    }
-    if (sum == 0) {
-        MessageBox::Show("Failed to borrow.\r\nYou cannot borrow nothing!", "CWTS Inventory Management System");
-        BorrowButton->Enabled = false;
-        BorrowButton->BackColor = System::Drawing::Color::Silver;
-    }
-    if ((curr[0] - tib < 0) || (curr[1] - tab < 0) || (curr[2] - dp < 0) || (curr[3] - dp < 0) || (curr[4] - tim < 0) || (curr[5] - mop < 0) || (curr[6] - pala < 0) || (curr[7] - pan < 0)) {
-        MessageBox::Show("Failed to borrow.\r\nSome items you have borrowed exceeded current value.\r\n(Check in dashboard to see items remaining then Try again.)", "CWTS Inventory Management System");
-        BorrowButton->Enabled = false;
-        BorrowButton->BackColor = System::Drawing::Color::Silver;
-    }
-    else {
-        String^ id = System::Convert::ToString(rand()) + System::Convert::ToString(rand()) + System::Convert::ToString(rand()) + System::Convert::ToString(rand());
-        StreamReader^ num = File::OpenText("Num.txt");
-        String^ number;
-        int nam = 0;
-        while ((number = num->ReadLine()) != nullptr) {
-            nam = System::Convert::ToInt32(num->ReadLine());
-        }
-        num->Close();
-        Int64 idnum = System::Convert::ToInt64(id) + nam;
-        id = System::Convert::ToString(idnum);
-        MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: " + id, "CWTS Inventory Management System");
-        if (Tingtinginput->Text == "")
-            Tingtinginput->Text = "0";
-        if (tamboinput->Text == "")
-            tamboinput->Text = "0";
-        if (dustpaninput->Text == "")
-            dustpaninput->Text = "0";
-        if (timbainput->Text == "")
-            timbainput->Text = "0";
-        if (mopinput->Text == "")
-            mopinput->Text = "0";
-        if (scissorinput->Text == "")
-            scissorinput->Text = "0";
-        StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
-        logs->WriteLine("{0}", id);
-        logs->WriteLine(DateTime::Now);
-        logs->WriteLine("Action: Borrow");
-        logs->WriteLine("Name: {0}", nameinput->Text);
-        logs->WriteLine("Program: {0}", programinput->Text);
-        logs->WriteLine("Designation: {0}", desiginput->Text);
-        logs->WriteLine("Borrowed Items:");
-        logs->WriteLine("Walis Tingting: {0}", Tingtinginput->Text);
-        logs->WriteLine("Walis Tambo: {0}", tamboinput->Text);
-        logs->WriteLine("Dust Pan: {0}", dustpaninput->Text);
-        logs->WriteLine("Bucket: {0}", timbainput->Text);
-        logs->WriteLine("Mop: {0}", mopinput->Text);
-        logs->WriteLine("Gardening Scissor: {0}", scissorinput->Text);
-        logs->WriteLine("Shovel: {0}", palainput->Text);
-        logs->WriteLine("Watering Can: {0}", pandiliginput->Text);
-        logs->WriteLine(" ");
-        logs->Close();
+  for (int x : curr) {
+    sum += x;
+  }
+  if (sum == 0) {
+    MessageBox::Show("Failed to borrow.\r\nYou cannot borrow nothing!", "CWTS Inventory Management System");
+    BorrowButton->Enabled = false;
+    BorrowButton->BackColor = System::Drawing::Color::Silver;
+  }
+  if ((curr[0] - tib < 0) || (curr[1] - tab < 0) || (curr[2] - dp < 0) || (curr[3] - dp < 0) || (curr[4] - tim < 0) || (curr[5] - mop < 0) || (curr[6] - pala < 0) || (curr[7] - pan < 0)) {
+    MessageBox::Show("Failed to borrow.\r\nSome items you have borrowed exceeded current value.\r\n(Check in dashboard to see items remaining then Try again.)", "CWTS Inventory Management System");
+    BorrowButton->Enabled = false;
+    BorrowButton->BackColor = System::Drawing::Color::Silver;
+  }
+  else {
+    DateTime^ moment = DateTime::Now;
+    String^ id = System::Convert::ToString(rand()+moment->Day) + System::Convert::ToString(rand()+moment->Hour) + System::Convert::ToString(rand()+moment->Second) + System::Convert::ToString(rand()+moment->Millisecond);
+    MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: " + id, "CWTS Inventory Management System");
+    if (Tingtinginput->Text == "")
+      Tingtinginput->Text = "0";
+    if (tamboinput->Text == "")
+      tamboinput->Text = "0";
+    if (dustpaninput->Text == "")
+      dustpaninput->Text = "0";
+    if (timbainput->Text == "")
+      timbainput->Text = "0";
+    if (mopinput->Text == "")
+      mopinput->Text = "0";
+    if (scissorinput->Text == "")
+      scissorinput->Text = "0";
+    StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
+    logs->WriteLine("{0}", id);
+    logs->WriteLine(DateTime::Now);
+    logs->WriteLine("Action: Borrow");
+    logs->WriteLine("Name: {0}", nameinput->Text);
+    logs->WriteLine("Program: {0}", programinput->Text);
+    logs->WriteLine("Designation: {0}", desiginput->Text);
+    logs->WriteLine("Borrowed Items:");
+    logs->WriteLine("Walis Tingting: {0}", Tingtinginput->Text);
+    logs->WriteLine("Walis Tambo: {0}", tamboinput->Text);
+    logs->WriteLine("Dust Pan: {0}", dustpaninput->Text);
+    logs->WriteLine("Bucket: {0}", timbainput->Text);
+    logs->WriteLine("Mop: {0}", mopinput->Text);
+    logs->WriteLine("Gardening Scissor: {0}", scissorinput->Text);
+    logs->WriteLine("Shovel: {0}", palainput->Text);
+    logs->WriteLine("Watering Can: {0}", pandiliginput->Text);
+    logs->WriteLine(" ");
+    logs->Close();
 
-        StreamWriter^ numup = gcnew StreamWriter("Num.txt");
-        numup->WriteLine("{0}", System::Convert::ToString(nam + 1));
-        numup->Close();
+    StreamWriter^ current = gcnew StreamWriter(currtxt);
+    current->WriteLine(System::Convert::ToString(curr[0] - System::Convert::ToInt32(tib)));
+    current->WriteLine(System::Convert::ToString(curr[1] - System::Convert::ToInt32(tab)));
+    current->WriteLine(System::Convert::ToString(curr[2] - System::Convert::ToInt32(dp)));
+    current->WriteLine(System::Convert::ToString(curr[3] - System::Convert::ToInt32(tim)));
+    current->WriteLine(System::Convert::ToString(curr[4] - System::Convert::ToInt32(mop)));
+    current->WriteLine(System::Convert::ToString(curr[5] - System::Convert::ToInt32(scis)));
+    current->WriteLine(System::Convert::ToString(curr[6] - System::Convert::ToInt32(pala)));
+    current->WriteLine(System::Convert::ToString(curr[7] - System::Convert::ToInt32(pan)));
+    current->Close();
 
-        StreamWriter^ current = gcnew StreamWriter(currtxt);
-        current->WriteLine(System::Convert::ToString(curr[0] - System::Convert::ToInt32(tib)));
-        current->WriteLine(System::Convert::ToString(curr[1] - System::Convert::ToInt32(tab)));
-        current->WriteLine(System::Convert::ToString(curr[2] - System::Convert::ToInt32(dp)));
-        current->WriteLine(System::Convert::ToString(curr[3] - System::Convert::ToInt32(tim)));
-        current->WriteLine(System::Convert::ToString(curr[4] - System::Convert::ToInt32(mop)));
-        current->WriteLine(System::Convert::ToString(curr[5] - System::Convert::ToInt32(scis)));
-        current->WriteLine(System::Convert::ToString(curr[6] - System::Convert::ToInt32(pala)));
-        current->WriteLine(System::Convert::ToString(curr[7] - System::Convert::ToInt32(pan)));
-        current->Close();
-
-        nameinput->Text = "";
-        programinput->Text = "--Select Program--";
-        desiginput->Text = "";
-        Tingtinginput->Text = "0";
-        tamboinput->Text = "0";
-        dustpaninput->Text = "0";
-        timbainput->Text = "0";
-        mopinput->Text = "0";
-        scissorinput->Text = "0";
-        palainput->Text = "0";
-        pandiliginput->Text = "0";
-        BorrowButton->Enabled = false;
-        BorrowButton->BackColor = System::Drawing::Color::Silver;
-        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
-        preview->Text = previewtext;
-    }
+    nameinput->Text = "";
+    programinput->Text = "--Select Program--";
+    desiginput->Text = "";
+    Tingtinginput->Text = "0";
+    tamboinput->Text = "0";
+    dustpaninput->Text = "0";
+    timbainput->Text = "0";
+    mopinput->Text = "0";
+    scissorinput->Text = "0";
+    palainput->Text = "0";
+    pandiliginput->Text = "0";
+    BorrowButton->Enabled = false;
+    BorrowButton->BackColor = System::Drawing::Color::Silver;
+    previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
+    preview->Text = previewtext;
+  }
 }
 private: System::Void idinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
     if (e->KeyChar == (int)Keys::Enter) {
@@ -2492,6 +2482,16 @@ private: System::Void idinput_KeyPress(System::Object^ sender, System::Windows::
                             break;
                         returnpreview->AppendText(line);
                         returnpreview->AppendText(Environment::NewLine);
+                        if (i < 0 && i > 4) {
+                          currnt[i - 1] = line;
+                        }
+                        if (i > 5) {
+                          Regex^ regex = gcnew Regex("\\d+");
+                          Match^ match = regex->Match(line);
+                          if (match->Success) {
+                            nums[i-6] =(System::Convert::ToInt32(match->Value));
+                          }
+                        }
                     }
                     ReturnButton->BackColor = System::Drawing::Color::Maroon;
                     ReturnButton->Enabled = true;
@@ -2506,86 +2506,58 @@ private: System::Void idinput_KeyPress(System::Object^ sender, System::Windows::
     }
 }
 private: System::Void ReturnButton_Click(System::Object^ sender, System::EventArgs^ e) {
-    std::vector<Int32> nums;
-    array<String^>^ currnt = { "0", "0", "0", "0", "0", "0" };
-    String^ id = idinput->Text;
-    StreamReader^ logs = File::OpenText(logstxt);
-    int ctr = 0, count = 0;
-    bool idFound = false;
+  int allitems = 0;
+  String^ id = idinput->Text;
+  for (int x = 0; x < 8; x++) {
+    allitems += nums[x];
+  }
 
-    while (logs->Peek() >= 0) {
-        String^ line = logs->ReadLine();
-        if (line == id) {
-            idFound = true;
-            for (int i = 0; i < 6; i++) {
-                logs->ReadLine();
-                currnt[i] = logs->ReadLine();
-            }
-            for (int i = 0; i < 9; i++) {
-                line = logs->ReadLine();
-                if (line != nullptr) {
-                    Regex^ regex = gcnew Regex("\\d+");
-                    Match^ match = regex->Match(line);
-                    if (match->Success) {
-                        nums.push_back(System::Convert::ToInt32(match->Value));
-                        count++;
-                    }
-                }
-            }
-            break;
-        }
+  if (MessageBox::Show("Return all " + allitems + " items?", "CWTS Inventory Management System", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+    StreamReader^ cur = File::OpenText(currtxt);
+    std::vector<Int32> curr;
+    String^ str;
+
+    while ((str = cur->ReadLine()) != nullptr) {
+      curr.push_back(System::Convert::ToInt32(str));
     }
-    if (nums.size() < 8) {
-        for (int i = count; i < 8; i++) {
-            nums.push_back(0);
-        }
+    cur->Close();
+
+    StreamWriter^ current = gcnew StreamWriter(currtxt);
+    for (int i = 0; i < 8; i++) {
+      current->WriteLine(System::Convert::ToString(curr[i] + nums[i]));
     }
-    logs->Close();
-    int allitems = 0;
-    for (int x = 0; x < nums.size(); x++) {
-        allitems += nums[x];
-    }
-    if (MessageBox::Show("Return all " + allitems + " items?", "CWTS Inventory Management System", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
-        StreamReader^ cur = File::OpenText(currtxt);
-        std::vector<Int32> curr;
-        String^ str;
+    current->Close();
 
-        while ((str = cur->ReadLine()) != nullptr) {
-            curr.push_back(System::Convert::ToInt32(str));
-        }
-        cur->Close();
+    StreamWriter^ logWriter = gcnew StreamWriter(logstxt, true);
+    logWriter->WriteLine(DateTime::Now);
+    logWriter->WriteLine("{0}", currnt[0]);
+    logWriter->WriteLine("{0}", currnt[1]);
+    logWriter->WriteLine("{0}", currnt[2]);
+    logWriter->WriteLine("Action: Return");
+    logWriter->WriteLine("Borrowed Items:");
+    logWriter->WriteLine("Walis Tingting: {0}", nums[0]);
+    logWriter->WriteLine("Walis Tambo: {0}", nums[1]);
+    logWriter->WriteLine("Dust Pan: {0}", nums[2]);
+    logWriter->WriteLine("Bucket: {0}", nums[3]);
+    logWriter->WriteLine("Mop: {0}", nums[4]);
+    logWriter->WriteLine("Gardening Scissor: {0}", nums[5]);
+    logWriter->WriteLine("Shovel: {0}", nums[6]);
+    logWriter->WriteLine("Watering Can: {0}", nums[7]);
+    logWriter->WriteLine(" ");
+    logWriter->Close();
 
-        StreamWriter^ current = gcnew StreamWriter(currtxt);
-        for (int i = 0; i < nums.size(); i++) {
-            current->WriteLine(System::Convert::ToString(curr[i] + nums[i]));
-        }
-        current->Close();
+    StreamWriter^ ret = gcnew StreamWriter(returntxt, true);
+    ret->WriteLine("{0}", id);
+    ret->Close();
 
-        StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
-        logs->WriteLine(DateTime::Now);
-        logs->WriteLine("{0}", currnt[0]);
-        logs->WriteLine("Action: Return");
-        logs->WriteLine("Borrowed Items:");
-        logs->WriteLine("Walis Tingting: {0}", nums[0]);
-        logs->WriteLine("Walis Tambo: {0}", nums[1]);
-        logs->WriteLine("Dust Pan: {0}", nums[2]);
-        logs->WriteLine("Bucket: {0}", nums[3]);
-        logs->WriteLine("Mop: {0}", nums[4]);
-        logs->WriteLine("Gardening Scissor: {0}", nums[5]);
-        logs->WriteLine("Shovel: {0}", nums[6]);
-        logs->WriteLine("Watering Can: {0}", nums[7]);
-        logs->WriteLine(" ");
-        logs->Close();
+    MessageBox::Show(allitems + " items have been returned successfully!", "CWTS Inventory Management System");
 
-        StreamWriter^ ret = gcnew StreamWriter(returntxt, true);
-        ret->WriteLine("{0}", id);
-        ret->Close();
+    idinput->Text = "";
+    returnpreview->Text = "";
 
-        MessageBox::Show(allitems + " items have been returned successfully!", "CWTS Inventory Management System");
-
-        ReturnButton->BackColor = System::Drawing::Color::Silver;
-        ReturnButton->Enabled = false;
-    }
+    ReturnButton->BackColor = System::Drawing::Color::Silver;
+    ReturnButton->Enabled = false;
+  }
 }
 };
 }
