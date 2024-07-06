@@ -91,3 +91,127 @@ Gardening Scissor: 0
 Shovel: 0
 Watering Can: 0
  
+4718485638426625
+06/07/2024 6:15:53 pm
+Action: Borrow
+Name: Sherlock Holmes
+Program: Bachelor of Science in Psychology
+Designation: Big Ben
+Borrowed Items:
+Walis Tingting: 3
+Walis Tambo: 10
+Dust Pan: 6
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+06/07/2024 6:16:16 pm
+Action: Borrow
+Name: Sherlock Holmes
+Program: Bachelor of Science in Psychology
+Action: Return
+Borrowed Items:
+Walis Tingting: 3
+Walis Tambo: 10
+Dust Pan: 6
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+4718485633526817
+06/07/2024 6:18:04 pm
+Action: Borrow
+Name: Tuffy
+Program: Bachelor of Science in Education Major in Mathematics
+Designation: ISS
+Borrowed Items:
+Walis Tingting: 10
+Walis Tambo: 0
+Dust Pan: 4
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+19175157421151529513
+06/07/2024 6:18:41 pm
+Action: Borrow
+Name: Beans
+Program: Bachelor of Science in Information Technology
+Designation: Purgatory
+Borrowed Items:
+Walis Tingting: 2
+Walis Tambo: 2
+Dust Pan: 2
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+2696824482573028849
+06/07/2024 6:19:28 pm
+Action: Borrow
+Name: Elmo
+Program: Bachelor of Science in Mechanical Engineering
+Designation: Sesame Street
+Borrowed Items:
+Walis Tingting: 5
+Walis Tambo: 3
+Dust Pan: 10
+Bucket: 4
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+06/07/2024 6:21:09 pm
+Name: Elmo
+Program: Bachelor of Science in Mechanical Engineering
+Designation: Sesame Street
+Action: Return
+Borrowed Items:
+Walis Tingting: 5
+Walis Tambo: 3
+Dust Pan: 10
+Bucket: 4
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+06/07/2024 6:21:51 pm
+Name: Beans
+Program: Bachelor of Science in Information Technology
+Designation: Purgatory
+Action: Return
+Borrowed Items:
+Walis Tingting: 2
+Walis Tambo: 2
+Dust Pan: 2
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 
+06/07/2024 6:22:23 pm
+Name: Tuffy
+Program: Bachelor of Science in Education Major in Mathematics
+Designation: ISS
+Action: Return
+Borrowed Items:
+Walis Tingting: 10
+Walis Tambo: 0
+Dust Pan: 4
+Bucket: 0
+Mop: 0
+Gardening Scissor: 0
+Shovel: 0
+Watering Can: 0
+ 

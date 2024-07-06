@@ -2391,7 +2391,7 @@ private: System::Void BorrowButton_MouseClick(System::Object^ sender, System::Wi
   }
   else {
     DateTime^ moment = DateTime::Now;
-    String^ id = System::Convert::ToString(rand()+moment->Day) + System::Convert::ToString(rand()+moment->Hour) + System::Convert::ToString(rand()+moment->Second) + System::Convert::ToString(rand()+moment->Millisecond);
+    String^ id = System::Convert::ToString(rand()+moment->Day+moment->Millisecond) + System::Convert::ToString(rand()+moment->Hour+moment->Millisecond) + System::Convert::ToString(rand()+moment->Second) + System::Convert::ToString(rand()+moment->Millisecond);
     MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: " + id, "CWTS Inventory Management System");
     if (Tingtinginput->Text == "")
       Tingtinginput->Text = "0";
@@ -2478,13 +2478,13 @@ private: System::Void idinput_KeyPress(System::Object^ sender, System::Windows::
                     idFound = true;
                     for (int i = 0; i < 15; i++) {
                         String^ line = logs->ReadLine();
+                        if (i > 1 && i < 5) {
+                          currnt[i - 2] = line;
+                        }
                         if (line == nullptr)
                             break;
                         returnpreview->AppendText(line);
                         returnpreview->AppendText(Environment::NewLine);
-                        if (i < 0 && i > 4) {
-                          currnt[i - 1] = line;
-                        }
                         if (i > 5) {
                           Regex^ regex = gcnew Regex("\\d+");
                           Match^ match = regex->Match(line);
