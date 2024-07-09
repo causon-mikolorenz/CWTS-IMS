@@ -1560,16 +1560,18 @@ namespace Project {
     }
 
   private:
-    System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e) { Close(); }
+    System::Void ExitBtn_Click(System::Object^ sender, System::EventArgs^ e) { 
+        Close(); //Closes the application
+    }
 
   private:
     System::Void HomeBtn_Click(System::Object^ sender, System::EventArgs^ e)
     {
-      HomePanel->BackColor = System::Drawing::Color::Maroon;
-      BorrowingPanel->BackColor = System::Drawing::Color::Snow;
+      HomePanel->BackColor = System::Drawing::Color::Maroon; //sets the bottom panel to maroon
+      BorrowingPanel->BackColor = System::Drawing::Color::Snow; // sets the other tabs panel into snow
       ReturningPanel->BackColor = System::Drawing::Color::Snow;
       HistoryPanel->BackColor = System::Drawing::Color::Snow;
-      HomeTab->BringToFront();
+      HomeTab->BringToFront(); //brings the Home panel in front to show controls
       StreamReader^ cur = File::OpenText(currtxt);
       array<String^>^ curr = { "0", "0", "0", "0", "0", "0", "0", "0" };
       String^ str;
@@ -1592,11 +1594,11 @@ namespace Project {
   private:
     System::Void BorrowBtn_Click(System::Object^ sender, System::EventArgs^ e)
     {
-      HomePanel->BackColor = System::Drawing::Color::Snow;
+      HomePanel->BackColor = System::Drawing::Color::Snow; //sets the buttons panel to maroon while sets the others snow
       BorrowingPanel->BackColor = System::Drawing::Color::Maroon;
       ReturningPanel->BackColor = System::Drawing::Color::Snow;
       HistoryPanel->BackColor = System::Drawing::Color::Snow;
-      BorrowTab->BringToFront();
+      BorrowTab->BringToFront(); //brings the panel into front so that the controls can be interacted
     }
 
   private:
@@ -1617,29 +1619,31 @@ namespace Project {
       ReturningPanel->BackColor = System::Drawing::Color::Snow;
       HistoryPanel->BackColor = System::Drawing::Color::Maroon;
       HistoryTab->BringToFront();
-      StreamReader^ history = File::OpenText(logstxt);
-      String^ line;
-      while ((line = history->ReadLine()) != nullptr) {
-        Logs->AppendText(line);
-        Logs->AppendText(Environment::NewLine);
+      StreamReader^ history = File::OpenText(logstxt); //opens the file "Logs.txt"
+      String^ line; //text line handler
+      while ((line = history->ReadLine()) != nullptr) { //reads each line until there is nothing to read anymore
+        Logs->AppendText(line); //displays the line in the textbox
+        Logs->AppendText(Environment::NewLine); //adds new line to display another line
       }
-      history->Close();
+      history->Close(); //closes the file
     }
 
   private:
-    System::Void Timer_Tick(System::Object^ sender, System::EventArgs^ e) { date->Text = System::Convert::ToString(DateTime::Now); }
+    System::Void Timer_Tick(System::Object^ sender, System::EventArgs^ e) { 
+        date->Text = System::Convert::ToString(DateTime::Now); //displays the time on the label using the system time 
+    }
 
   private:
     System::Void Tingtinginput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
     {
       if (!(e->KeyChar == 8 || (e->KeyChar >= 48 && e->KeyChar <= 57) || e->KeyChar == (int)Keys::Enter)) {
-        e->Handled = true;
+        e->Handled = true; //handles the keys as long as it is backspace, numbers, or Enter
       }
       if (e->KeyChar == (int)Keys::Enter) {
-        tamboinput->Focus();
-        e->Handled = true;
-        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
-        preview->Text = previewtext;
+        tamboinput->Focus(); //focuses on the next input field
+        e->Handled = true; //stops the annoying 'ding' sound
+        previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text; //writes the value of the previewtext using the inputs
+        preview->Text = previewtext; //puts the value of previewtext on the textbox
       }
     }
 
@@ -1811,12 +1815,12 @@ namespace Project {
     System::Void Tingtinginput_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
     {
       previewtext = "Name: " + nameinput->Text + "\r\nProgram: " + programinput->Text + "\r\nDesignation: " + desiginput->Text + "\r\nNumber of items borrowed:\r\nWalis Tingting: " + Tingtinginput->Text + "\r\nWalis Tambo: " + tamboinput->Text + "\r\nDust Pan: " + dustpaninput->Text + "\r\nBucket: " + timbainput->Text + "\r\nMop: " + mopinput->Text + "\r\nGardening Scissor: " + scissorinput->Text + "\r\nShovel: " + palainput->Text + "\r\nWatering Can: " + pandiliginput->Text;
-      preview->Text = previewtext;
-      if (desiginput->Text == "" && (programinput->Text == "--Select a Program--" || programinput->Text == "") && nameinput->Text == "") {
-        BorrowButton->Enabled = false;
-        BorrowButton->BackColor = System::Drawing::Color::Silver;
+      preview->Text = previewtext; //writes the value of the previewtext using the inputs
+      if (desiginput->Text == "" && (programinput->Text == "--Select a Program--" || programinput->Text == "") && nameinput->Text == "") { //checks if the name, program, and designation isn't filled
+        BorrowButton->Enabled = false; //makes the borrow button unclickable
+        BorrowButton->BackColor = System::Drawing::Color::Silver; //changes the button color to further indicate that the button is unclickable
       }
-      else {
+      else { //else, the button will be enabled and set to the color maroon
         BorrowButton->Enabled = true;
         BorrowButton->BackColor = System::Drawing::Color::Maroon;
       }
@@ -1982,17 +1986,18 @@ namespace Project {
   private:
     System::Void BorrowButton_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
     {
-      StreamReader^ cur = File::OpenText(currtxt);
-      std::vector<Int32> curr;
-      int sum = 0;
-      String^ str;
-      while ((str = cur->ReadLine()) != nullptr) {
-        Regex^ regex = gcnew Regex("\\d+");
-        Match^ match = regex->Match(str);
-        if (match->Success) {
+      StreamReader^ cur = File::OpenText(currtxt); //opens the file "Current.txt"
+      std::vector<Int32> curr; //initializes a dynamic array
+      int sum = 0; 
+      String^ str; //text line handler
+      while ((str = cur->ReadLine()) != nullptr) { //reads each line of the file until there is nothing to read
+        Regex^ regex = gcnew Regex("\\d+"); //initializes the method to check for 1 or more digits in a string
+        Match^ match = regex->Match(str); //checks for digits in each line
+        if (match->Success) { //if there is a digit found, the value will be pushed on the dynamic array
           curr.push_back(System::Convert::ToInt32(match->Value));
         }
       }
+      //puts the value of all inputs into a variable
       Int32 tib = System::Convert::ToInt32(Tingtinginput->Text);
       Int32 tab = System::Convert::ToInt32(tamboinput->Text);
       Int32 dp = System::Convert::ToInt32(dustpaninput->Text);
@@ -2001,25 +2006,26 @@ namespace Project {
       Int32 scis = System::Convert::ToInt32(scissorinput->Text);
       Int32 pala = System::Convert::ToInt32(palainput->Text);
       Int32 pan = System::Convert::ToInt32(pandiliginput->Text);
-      cur->Close();
+      cur->Close(); //closes the file
 
-      for (int x : curr) {
-        sum += x;
+      for (int x : curr) { //for each loop iterating each value in the vector curr
+        sum += x; //adds the value of x to the sum
       }
-      if (sum == 0) {
+      if (sum == 0) { //if the sum is 0, a message will be prompted and disables the button and its appearance will be changed
         MessageBox::Show("Failed to borrow.\r\nYou cannot borrow nothing!", "CWTS Inventory Management System");
         BorrowButton->Enabled = false;
         BorrowButton->BackColor = System::Drawing::Color::Silver;
       }
-      if ((curr[0] - tib < 0) || (curr[1] - tab < 0) || (curr[2] - dp < 0) || (curr[3] - tim < 0) || (curr[4] - mop < 0) || (curr[5] - scis < 0) || (curr[6] - pala < 0) || (curr[7] - pan < 0)) {
+      if ((curr[0] - tib < 0) || (curr[1] - tab < 0) || (curr[2] - dp < 0) || (curr[3] - tim < 0) || (curr[4] - mop < 0) || (curr[5] - scis < 0) || (curr[6] - pala < 0) || (curr[7] - pan < 0)) { //if the borrowed items difference is less than 0, it will prompt a message which disables the button and its appearance will be changed
         MessageBox::Show("Failed to borrow.\r\nSome items you have borrowed exceeded current value.\r\n(Check in dashboard to see items remaining then Try again.)", "CWTS Inventory Management System");
         BorrowButton->Enabled = false;
         BorrowButton->BackColor = System::Drawing::Color::Silver;
       }
-      else {
-        DateTime^ moment = DateTime::Now;
-        String^ id = System::Convert::ToString(rand() + moment->Day + moment->Millisecond) + System::Convert::ToString(rand() + moment->Hour + moment->Millisecond) + System::Convert::ToString(rand() + moment->Second) + System::Convert::ToString(rand() + moment->Millisecond);
-        MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: " + id, "CWTS Inventory Management System");
+      else { //if the correct input are made, this block will run
+        DateTime^ moment = DateTime::Now; //saves the exact time
+        String^ id = System::Convert::ToString(rand() + moment->Day + moment->Millisecond) + System::Convert::ToString(rand() + moment->Hour + moment->Millisecond) + System::Convert::ToString(rand() + moment->Second) + System::Convert::ToString(rand() + moment->Millisecond); //generates an ID using a random number plus a part of time to avoid similar ID generation
+        MessageBox::Show("Items Borrowed Successfully!\r\nBorrow ID: " + id, "CWTS Inventory Management System"); //prompts that the user is successful in borrowing and shows the borrow id
+        //if some or all fields are blank in the part where a number is needed, it will be changed to 0
         if (Tingtinginput->Text == "")
           Tingtinginput->Text = "0";
         if (tamboinput->Text == "")
@@ -2032,11 +2038,11 @@ namespace Project {
           mopinput->Text = "0";
         if (scissorinput->Text == "")
           scissorinput->Text = "0";
-        StreamWriter^ logs = gcnew StreamWriter(logstxt, true);
-        logs->WriteLine("{0}", id);
-        logs->WriteLine(DateTime::Now);
+        StreamWriter^ logs = gcnew StreamWriter(logstxt, true); //opens and writes in "Logs.txt" without overwriting, and writes all the input in the text file
+        logs->WriteLine("{0}", id); 
+        logs->WriteLine(DateTime::Now); 
         logs->WriteLine("Action: Borrow");
-        logs->WriteLine("Name: {0}", nameinput->Text);
+        logs->WriteLine("Name: {0}", nameinput->Text); 
         logs->WriteLine("Program: {0}", programinput->Text);
         logs->WriteLine("Designation: {0}", desiginput->Text);
         logs->WriteLine("Borrowed Items:");
@@ -2049,9 +2055,9 @@ namespace Project {
         logs->WriteLine("Shovel: {0}", palainput->Text);
         logs->WriteLine("Watering Can: {0}", pandiliginput->Text);
         logs->WriteLine(" ");
-        logs->Close();
+        logs->Close(); //closes the file
 
-        StreamWriter^ current = gcnew StreamWriter(currtxt);
+        StreamWriter^ current = gcnew StreamWriter(currtxt); //opens the "Current.txt" and writes completely new lines by overwriting. It writes the difference of the number of current items and the number of borrowed items for each line
         current->WriteLine(System::Convert::ToString(curr[0] - System::Convert::ToInt32(tib)));
         current->WriteLine(System::Convert::ToString(curr[1] - System::Convert::ToInt32(tab)));
         current->WriteLine(System::Convert::ToString(curr[2] - System::Convert::ToInt32(dp)));
@@ -2060,8 +2066,9 @@ namespace Project {
         current->WriteLine(System::Convert::ToString(curr[5] - System::Convert::ToInt32(scis)));
         current->WriteLine(System::Convert::ToString(curr[6] - System::Convert::ToInt32(pala)));
         current->WriteLine(System::Convert::ToString(curr[7] - System::Convert::ToInt32(pan)));
-        current->Close();
+        current->Close(); //closes the file
 
+        //resets the fields, preview, and disables the borrow button
         nameinput->Text = "";
         programinput->Text = "--Select Program--";
         desiginput->Text = "";
@@ -2084,13 +2091,13 @@ namespace Project {
     System::Void idinput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
     {
       if (e->KeyChar == (int)Keys::Enter) {
-        e->Handled = true;
+        e->Handled = true; //disables the 'ding' sound
         String^ id;
         bool idFound = false, idhad = false;
 
-        StreamReader^ retr = File::OpenText(returntxt);
-        while ((id = retr->ReadLine()) != nullptr) {
-          if (idinput->Text == id) {
+        StreamReader^ retr = File::OpenText(returntxt); //reads the file "Returned.txt"
+        while ((id = retr->ReadLine()) != nullptr) { // same procedure, reads each line until there is nothing
+          if (idinput->Text == id) { //if there is a match, disable the button and prompt that the id was already used
             returnpreview->Text = "Items has been already returned!";
             idhad = true;
             ReturnButton->BackColor = System::Drawing::Color::Silver;
@@ -2098,24 +2105,23 @@ namespace Project {
             break;
           }
         }
-        retr->Close();
+        retr->Close(); //close the file
 
-        if (!idhad) {
-          StreamReader^ logs = File::OpenText(logstxt);
-          int ctr = 0;
-          while ((id = logs->ReadLine()) != nullptr) {
-            if (idinput->Text == id) {
+        if (!idhad) { //if not found,
+          StreamReader^ logs = File::OpenText(logstxt); //opens the file "Logs.txt"
+          while ((id = logs->ReadLine()) != nullptr) { //reads each line till nothing can be read
+            if (idinput->Text == id) { //checks if the line contains the ID
               idFound = true;
-              for (int i = 0; i < 15; i++) {
+              for (int i = 0; i < 15; i++) { //iterates 15 lines from the id
                 String^ line = logs->ReadLine();
-                if (i > 1 && i < 5) {
+                if (i > 1 && i < 5) { //if i is 2-4, put the value in currnt
                   currnt[i - 2] = line;
                 }
-                if (line == nullptr)
+                if (line == nullptr) //checks if there is nothing to read where it stops reading the file
                   break;
-                returnpreview->AppendText(line);
-                returnpreview->AppendText(Environment::NewLine);
-                if (i > 5) {
+                returnpreview->AppendText(line); //puts the line in the textbox
+                returnpreview->AppendText(Environment::NewLine); //adds new line
+                if (i > 5) { //if i is greater than 5, it will check for the digits in the line and puts the value in nums
                   Regex^ regex = gcnew Regex("\\d+");
                   Match^ match = regex->Match(line);
                   if (match->Success) {
@@ -2123,15 +2129,15 @@ namespace Project {
                   }
                 }
               }
-              ReturnButton->BackColor = System::Drawing::Color::Maroon;
+              ReturnButton->BackColor = System::Drawing::Color::Maroon; //enables the button
               ReturnButton->Enabled = true;
               break;
             }
           }
           if (!idFound) {
-            returnpreview->Text = "Invalid ID";
+            returnpreview->Text = "Invalid ID"; //prompts that the id is invalid
           }
-          logs->Close();
+          logs->Close(); //closes the file
         }
       }
     }
@@ -2139,33 +2145,33 @@ namespace Project {
   private:
     System::Void ReturnButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-      int allitems = 0;
-      String^ id = idinput->Text;
-      for (int x = 0; x < 8; x++) {
+      int allitems = 0; 
+      String^ id = idinput->Text; //saves the id input in a variable
+      for (int x = 0; x < 8; x++) { //gets the sum of all items borrowed from a specific id
         allitems += nums[x];
       }
 
-      if (MessageBox::Show("Return all " + allitems + " items?", "CWTS Inventory Management System", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
-        StreamReader^ cur = File::OpenText(currtxt);
-        std::vector<Int32> curr;
-        String^ str;
+      if (MessageBox::Show("Return all " + allitems + " items?", "CWTS Inventory Management System", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) { //prompt
+        StreamReader^ cur = File::OpenText(currtxt); //reads the file "Current.txt"
+        std::vector<Int32> curr; //initializes a dynamic array
+        String^ str; //text handler
 
-        while ((str = cur->ReadLine()) != nullptr) {
-          curr.push_back(System::Convert::ToInt32(str));
+        while ((str = cur->ReadLine()) != nullptr) { //reads until there is nothing
+          curr.push_back(System::Convert::ToInt32(str)); //converts the string into int and puts the value in the vector
         }
-        cur->Close();
+        cur->Close(); //closes the file
 
-        StreamWriter^ current = gcnew StreamWriter(currtxt);
+        StreamWriter^ current = gcnew StreamWriter(currtxt); //opens the file "Current.txt" and overwrites the file
         for (int i = 0; i < 8; i++) {
-          current->WriteLine(System::Convert::ToString(curr[i] + nums[i]));
+          current->WriteLine(System::Convert::ToString(curr[i] + nums[i])); //updates the values of each item by adding
         }
-        current->Close();
+        current->Close(); //closes the file
 
-        StreamWriter^ logWriter = gcnew StreamWriter(logstxt, true);
-        logWriter->WriteLine(DateTime::Now);
-        logWriter->WriteLine("{0}", currnt[0]);
-        logWriter->WriteLine("{0}", currnt[1]);
-        logWriter->WriteLine("{0}", currnt[2]);
+        StreamWriter^ logWriter = gcnew StreamWriter(logstxt, true); //writes on "Logs.txt" without overwriting
+        logWriter->WriteLine(DateTime::Now); //date and time of return
+        logWriter->WriteLine("{0}", currnt[0]); //name
+        logWriter->WriteLine("{0}", currnt[1]); //program
+        logWriter->WriteLine("{0}", currnt[2]); //designation
         logWriter->WriteLine("Action: Return");
         logWriter->WriteLine("Borrowed Items:");
         logWriter->WriteLine("Walis Tingting: {0}", nums[0]);
@@ -2177,14 +2183,15 @@ namespace Project {
         logWriter->WriteLine("Shovel: {0}", nums[6]);
         logWriter->WriteLine("Watering Can: {0}", nums[7]);
         logWriter->WriteLine(" ");
-        logWriter->Close();
+        logWriter->Close(); //closes the file
 
-        StreamWriter^ ret = gcnew StreamWriter(returntxt, true);
+        StreamWriter^ ret = gcnew StreamWriter(returntxt, true); //writes a new line adding the id on the list of returned ids
         ret->WriteLine("{0}", id);
         ret->Close();
 
-        MessageBox::Show(allitems + " items have been returned successfully!", "CWTS Inventory Management System");
+        MessageBox::Show(allitems + " items have been returned successfully!", "CWTS Inventory Management System"); //prompt
 
+        //resets the fields and disables the button
         idinput->Text = "";
         returnpreview->Text = "";
 
