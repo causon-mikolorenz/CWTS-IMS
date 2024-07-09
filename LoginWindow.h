@@ -278,14 +278,16 @@ namespace Project {
 		}
 	}
 	private: System::Void UserEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-		e->Handled;
-		if (e->KeyChar == (int)Keys::Enter)
+		if (e->KeyChar == (int)Keys::Enter) {
+			e->Handled;
 			PasswordEdit->Focus();
+		}
 	}
 	private: System::Void PasswordEdit_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-		e->Handled;
-		if (e->KeyChar == (int)Keys::Enter)
+		if (e->KeyChar == (int)Keys::Enter) {
+			e->Handled;
 			LoginButton->PerformClick();
+		}
 	}
 };
 }
