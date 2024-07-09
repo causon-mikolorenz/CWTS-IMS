@@ -1537,17 +1537,18 @@ namespace Project {
   private:
     System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e)
     {
-      Timer->Start();
-      HomeTab->BringToFront();
-      StreamReader^ cur = File::OpenText(currtxt);
-      array<String^>^ curr = { "0", "0", "0", "0", "0", "0", "0", "0" };
-      String^ str;
-      int ctr = 0;
-      while ((str = cur->ReadLine()) != nullptr) {
-        curr[ctr] = str;
-        ctr++;
+      Timer->Start(); //starts the timer to show the clock on the borrowing tab
+      HomeTab->BringToFront(); //puts the panel on the front to show the controls
+      StreamReader^ cur = File::OpenText(currtxt); //opens the file "Current.txt"
+      array<String^>^ curr = { "0", "0", "0", "0", "0", "0", "0", "0" }; // initializes an array of 8 strings
+      String^ str; //text handler in reading files
+      int ctr = 0; //refers as index to the curr array
+      while ((str = cur->ReadLine()) != nullptr) { //reads the file by line until there is nothing to read
+        curr[ctr] = str; //puts the content of the line in curr with the index of ctr
+        ctr++; //increments ctr to move the index
       }
-      cur->Close();
+      cur->Close(); //closes the file
+      //puts the text of each label based on the index of the curr
       Tingtingleft->Text = curr[0];
       Tamboleft->Text = curr[1];
       DustPanleft->Text = curr[2];
